@@ -1,5 +1,3 @@
-"""COMMAND : .runs , .metoo , .rape , .insult , .pro , .maaki , .gey"""
-
 from telethon import events
 import random, re
 from uniborg.util import admin_cmd
@@ -143,7 +141,7 @@ async def _(event):
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("maaki ?(.*)"))
+@borg.on(admin_cmd("abuse ?(.*)"))
 async def _(event):
     if event.fwd_from:
          return
