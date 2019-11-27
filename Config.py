@@ -1,0 +1,16 @@
+from sample_config import Config
+
+class Development(Config):
+  APP_ID = 1111640
+  API_HASH = "82ad844ba7b11357e37ca6ee22de53eb"
+  TG_BOT_TOKEN_BF_HER = ""
+  TG_BOT_USER_NAME_BF_HER = ""
+  GOOGLE_SEARCH_COUNT_LIMIT=5
+HU_STRING_SESSION="1BVtsOIwBuy4ihUABMs2FZFd-FBSzeZZzIrp6G7BkAC4_IpOUfhZdXoSTVeoL9WtVtlQjrsyBdoEnSW-IqEIYOenw8fhvDxs49qiScN1oZfINIcke-JYqyS7oju7ALHxJ-wnCrNOlh98_kLPspIqP2Lempee44x2vZ0SQwMsNusWLNBnWbafqvWtOdVr_qKJfpy2SL4YqdGPTjisSmKA8uS_e4YRyyxVajSb1VxeUdoUX4sK-zrVmquYhynsSbeErxrY4Llx5OYcDsiqQutbmoz1DKRs6M5aty1dEOlmyFawYUkUQddi2V43Cd9JiaxRzSveTtiA86ScUiK1MaNtUoXreOksKVwg="
+MAX_FLOOD_IN_P_M_s=4
+NC_LOG_P_M_S=False
+PRIVATE_GROUP_BOT_API_ID=-359160250
+TG_GLOBAL_ALBUM_LIMIT=3
+# specify LOAD and NO_LOAD
+  LOAD = []
+  NO_LOAD = []
