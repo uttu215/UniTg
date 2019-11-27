@@ -12,7 +12,7 @@ gsearch>=1.6.0
 gtts
 hachoir
 Pillow
-
+psycopg2
 python-magic
 regex
 requests
