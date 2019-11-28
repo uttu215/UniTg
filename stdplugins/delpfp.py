@@ -1,6 +1,4 @@
-Delete N numbers of profile pictures
-Command: `.delpfp <number of profile pictures to be deleted>`
-credit-Satwik(noob)
+
 import os
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
