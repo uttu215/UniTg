@@ -228,14 +228,7 @@ async def _(event):
     reply_text = NOOBSTR[bro]
     await event.edit(reply_text)
 	
-	@borg.on(admin_cmd("abusehard ?(.*)"))
-async def _(event):
-    if event.fwd_from:
-         return
-    bro = random.randint(0, len(ABUSEHARD_STRING) - 1)    
-    input_str = event.pattern_match.group(1)
-    reply_text = ABUSEHARD_STRING[bro]
-    await event.edit(reply_text)
+
 	
 	
 	
