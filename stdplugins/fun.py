@@ -229,8 +229,14 @@ async def _(event):
     await event.edit(reply_text)
 	
 
-	
-	
+@borg.on(admin_cmd("abusehard ?(.*)"))
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(ABUSEHARD_STRING) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = ABUSEHARD_STRING[bro]
+    await event.edit(reply_text)        
 	
 
 @borg.on(admin_cmd("oof ?(.*)"))
@@ -245,7 +251,7 @@ async def _(event):
 
     animation_ttl = range(0, 103)
 
-    input_str = oof
+    input_str ="oof"
 
     if input_str == "oof":
 
