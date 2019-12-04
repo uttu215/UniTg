@@ -228,7 +228,7 @@ async def _(event):
     reply_text = NOOBSTR[bro]
     await event.edit(reply_text)
 	
-	@borg.on(admin_cmd("ah ?(.*)"))
+	@borg.on(admin_cmd("abusehard ?(.*)"))
 async def _(event):
     if event.fwd_from:
          return
