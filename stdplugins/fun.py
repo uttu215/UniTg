@@ -1,6 +1,7 @@
 from telethon import events
 import random, re
 from uniborg.util import admin_cmd
+import asyncio
 
 METOOSTR = [
     "`Me too thanks`",
@@ -236,3 +237,46 @@ async def _(event):
     reply_text = ABUSEHARD_STRING[bro]
     await event.edit(reply_text)
 	
+	
+	
+
+@borg.on(admin_cmd("oof ?(.*)"))
+async def _(event):
+
+    if event.fwd_from:
+
+        return
+
+    animation_interval = 1
+    
+
+    animation_ttl = range(0, 103)
+
+    input_str = oof
+
+    if input_str == "oof":
+
+        await event.edit(input_str)
+
+        animation_chars = [
+
+            "o",
+            "oo",    
+            "ooo",
+            "ooooo",
+            "oooooo",
+            "ooooooo",
+            "oooooooo",
+            "ooooooooo",
+            "oooooooooo",    
+            "ooooooooooo",
+            "oooooooooooo",
+            "ooooooooooooo",
+            "oooooooooooooof"
+        ]
+
+        for i in animation_ttl:
+
+
+            await event.edit(animation_chars[i % 103])
+
