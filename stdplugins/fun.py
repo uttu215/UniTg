@@ -249,7 +249,7 @@ async def _(event):
     animation_interval = 1
     
 
-    animation_ttl = range(0, 14)
+    animation_ttl = range(0, 103)
 
     input_str ="oof"
 
@@ -277,5 +277,5 @@ async def _(event):
         for i in animation_ttl:
 
 
-            await event.edit(animation_chars[i % 14])
-
+            await event.edit(animation_chars[i % 103])
+            print("ooooooooooooof")
