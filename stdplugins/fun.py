@@ -145,6 +145,96 @@ INSULT_STRINGS = [
     "`If you’re talking behind my back then you’re in a perfect position to kiss my a**!.`",
 
 ]
+
+SLAP_TEMPLATES = [
+    "{hits} {victim} with a {item}.",
+    "{hits} {victim} in the face with a {item}.",
+    "{hits} {victim} around a bit with a {item}.",
+    "{throws} a {item} at {victim}.",
+    "grabs a {item} and {throws} it at {victim}'s face.",
+    "{hits} a {item} at {victim}.", "{throws} a few {item} at {victim}.",
+    "grabs a {item} and {throws} it in {victim}'s face.",
+    "launches a {item} in {victim}'s general direction.",
+    "sits on {victim}'s face while slamming a {item} {where}.",
+    "starts slapping {victim} silly with a {item}.",
+    "pins {victim} down and repeatedly {hits} them with a {item}.",
+    "grabs up a {item} and {hits} {victim} with it.",
+    "starts slapping {victim} silly with a {item}.",
+    "holds {victim} down and repeatedly {hits} them with a {item}.",
+    "prods {victim} with a {item}.",
+    "picks up a {item} and {hits} {victim} with it.",
+    "ties {victim} to a chair and {throws} a {item} at them.",
+    "{hits} {victim} {where} with a {item}.",
+    "ties {victim} to a pole and whips them {where} with a {item}."
+    "gave a friendly push to help {victim} learn to swim in lava.",
+    "sent {victim} to /dev/null.", "sent {victim} down the memory hole.",
+    "beheaded {victim}.", "threw {victim} off a building.",
+    "replaced all of {victim}'s music with Nickelback.",
+    "spammed {victim}'s email.", "made {victim} a knuckle sandwich.",
+    "slapped {victim} with pure nothing.",
+    "hit {victim} with a small, interstellar spaceship.",
+    "quickscoped {victim}.", "put {victim} in check-mate.",
+    "RSA-encrypted {victim} and deleted the private key.",
+    "put {victim} in the friendzone.",
+    "slaps {victim} with a DMCA takedown request!"
+]
+
+ITEMS = [
+    "cast iron skillet",
+    "large trout",
+    "baseball bat",
+    "cricket bat",
+    "wooden cane",
+    "nail",
+    "printer",
+    "shovel",
+    "pair of trousers",
+    "CRT monitor",
+    "diamond sword",
+    "baguette",
+    "physics textbook",
+    "toaster",
+    "portrait of Richard Stallman",
+    "television",
+    "mau5head",
+    "five ton truck",
+    "roll of duct tape",
+    "book",
+    "laptop",
+    "old television",
+    "sack of rocks",
+    "rainbow trout",
+    "cobblestone block",
+    "lava bucket",
+    "rubber chicken",
+    "spiked bat",
+    "gold block",
+    "fire extinguisher",
+    "heavy rock",
+    "chunk of dirt",
+    "beehive",
+    "piece of rotten meat",
+    "bear",
+    "ton of bricks",
+]
+
+THROW = [
+    "throws",
+    "flings",
+    "chucks",
+    "hurls",
+]
+
+HIT = [
+    "hits",
+    "whacks",
+    "slaps",
+    "smacks",
+    "bashes",
+]
+
+WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
+
 # ===========================================
                           
 
@@ -239,3 +329,43 @@ async def _(event):
     await event.edit(reply_text)        
 	
 
+@borg.on(admin_cmd("slap ?(.*)"))
+async def who(event):
+    """ slaps a user, or get slapped if not a reply. """
+    replied_user = await get_user_from_event(event)
+    if replied_user:
+        replied_user = replied_user[0]
+    else:
+        return
+    caption = await slap(replied_user, event)
+
+    try:
+        await event.edit(caption)
+
+    except BaseException:
+        await event.edit(
+            "`Can't slap this person, need to fetch some sticks and stones !!`"
+        )
+
+
+async def slap(replied_user, event):
+    """ Construct a funny slap sentence !! """
+    user_id = replied_user.id
+    first_name = replied_user.first_name
+    username = replied_user.username
+
+    if username:
+        slapped = "@{}".format(username)
+    else:
+        slapped = f"[{first_name}](tg://user?id={user_id})"
+
+    temp = choice(SLAP_TEMPLATES)
+    item = choice(ITEMS)
+    hit = choice(HIT)
+    throw = choice(THROW)
+    where = choice(WHERE)
+
+    caption = "..." + temp.format(
+        victim=slapped, item=item, hits=hit, throws=throw, where=where)
+
+    return caption
