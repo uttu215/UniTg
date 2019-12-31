@@ -86,7 +86,7 @@ async def _(event):
 
    await event.edit(random.choice(KANGING_STR))
 
-  async with borg.conversation("@Stickers") as bot_conv:
+   async with borg.conversation("@Stickers") as bot_conv:
       now = datetime.datetime.now()
       dt = now + datetime.timedelta(minutes=1)
       if not await stickerset_exists(bot_conv, packshortname):
