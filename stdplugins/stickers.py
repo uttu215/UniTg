@@ -82,9 +82,9 @@ async def _(event):
     "Imprisoning this sticker...",
     "Mr.Steal Your Sticker is stealing this sticker... ",
 ]
-kang_meme = random.choice(KANGING_STR)
+kk = random.choice(KANGING_STR)
 
-    
+    await event.edit(kk)
 
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
