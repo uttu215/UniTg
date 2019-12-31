@@ -82,7 +82,7 @@ async def _(event):
         "Imprisoning this sticker...",
         "Mr.Steal Your Sticker is stealing this sticker... ",
    ]
-   kang_meme= random.choice(KANGING_STR)
+   
 
    await event.edit(random.choice(KANGING_STR))
 
