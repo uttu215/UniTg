@@ -64,38 +64,38 @@ async def _(event):
             resize_image(mem_file, sticker)
             sticker.seek(0)
             uploaded_sticker = await borg.upload_file(sticker, file_name=file_ext_ns_ion)
-            KANGING_STR = [
-    "Using Witchery to kang this sticker...",
-    "Plagiarising hehe...",
-    "Inviting this sticker over to my pack...",
-    "Kanging this sticker...",
-    "Hey that's a nice sticker!\
-    \nMind if I kang?!..",
-    "hehe me stel ur stikér\
-    \nhehe.",
-    "Ay look over there (☉｡☉)!→\
-    \nWhile I kang this...",
-    "Roses are red \
-    \nviolets are blue, \
-    \nkanging this sticker \
-    \nso my pacc looks cool",
-    "Imprisoning this sticker...",
-    "Mr.Steal Your Sticker is stealing this sticker... ",
-]
-kang_meme= random.choice(KANGING_STR)
+    KANGING_STR = [
+        "Using Witchery to kang this sticker...",
+        "Plagiarising hehe...",
+        "Inviting this sticker over to my pack...",
+        "Kanging this sticker...",
+        "Hey that's a nice sticker!\
+        \nMind if I kang?!..",
+        "hehe me stel ur stikér\
+        \nhehe.",
+        "Ay look over there (☉｡☉)!→\
+        \nWhile I kang this...",
+        "Roses are red \
+        \nviolets are blue, \
+        \nkanging this sticker \
+        \nso my pacc looks cool",
+        "Imprisoning this sticker...",
+        "Mr.Steal Your Sticker is stealing this sticker... ",
+   ]
+  kang_meme= random.choice(KANGING_STR)
 
-    await event.edit(random.choice(KANGING_STR))
+  await event.edit(random.choice(KANGING_STR))
 
-    async with borg.conversation("@Stickers") as bot_conv:
-        now = datetime.datetime.now()
-        dt = now + datetime.timedelta(minutes=1)
-        if not await stickerset_exists(bot_conv, packshortname):
-            await silently_send_message(bot_conv, "/cancel")
-            if is_a_s:
+  async with borg.conversation("@Stickers") as bot_conv:
+      now = datetime.datetime.now()
+      dt = now + datetime.timedelta(minutes=1)
+      if not await stickerset_exists(bot_conv, packshortname):
+          await silently_send_message(bot_conv, "/cancel")
+      if is_a_s:
                 response = await silently_send_message(bot_conv, "/newanimated")
-            else:
+      else:
                 response = await silently_send_message(bot_conv, "/newpack")
-            if "Yay!" not in response.text:
+      if "Yay!" not in response.text:
                 await event.edit(f"**FAILED**! @Stickers replied: {response.text}")
                 return
             response = await silently_send_message(bot_conv, packname)
