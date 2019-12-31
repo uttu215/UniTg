@@ -84,7 +84,7 @@ async def _(event):
 ]
 kang_meme = random.choice(KANGING_STR)
 
-    await event.edit(kang_meme)
+    await event.edit(random.choice(KANGING_STR))
 
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
