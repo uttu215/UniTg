@@ -44,8 +44,8 @@ async def _(event):
 
     me = borg.me
     userid = event.from_id
-    packname = f"{userid}'s @UniBorg Pack"
-    packshortname = f"Uni_Borg_{userid}"  # format: Uni_Borg_userid
+    packname = "a919262859_by_grandpaa_please_1"
+    
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@UniBorg_Sticker.png"
@@ -54,8 +54,8 @@ async def _(event):
     if is_a_s:
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
-        packname = f"{userid}'s @AnimatedStickersGroup"
-        packshortname = f"Uni_Borg_{userid}_as"  # format: Uni_Borg_userid
+        packname = "a919262859_by_grandpaa_please_1_anim"
+        
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
@@ -64,8 +64,27 @@ async def _(event):
             resize_image(mem_file, sticker)
             sticker.seek(0)
             uploaded_sticker = await borg.upload_file(sticker, file_name=file_ext_ns_ion)
+            KANGING_STR = [
+    "Using Witchery to kang this sticker...",
+    "Plagiarising hehe...",
+    "Inviting this sticker over to my pack...",
+    "Kanging this sticker...",
+    "Hey that's a nice sticker!\
+    \nMind if I kang?!..",
+    "hehe me stel ur stikér\
+    \nhehe.",
+    "Ay look over there (☉｡☉)!→\
+    \nWhile I kang this...",
+    "Roses are red \
+    \nviolets are blue, \
+    \nkanging this sticker \
+    \nso my pacc looks cool",
+    "Imprisoning this sticker...",
+    "Mr.Steal Your Sticker is stealing this sticker... ",
+]
+kang_meme = random.choice(KANGING_STR)
 
-    await event.edit("Processing this sticker. Please Wait!")
+    await event.edit(kang_meme)
 
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
