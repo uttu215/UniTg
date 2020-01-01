@@ -46,7 +46,7 @@ KANGING_STR = [
     "Mr.Steal Your Sticker is stealing this sticker... ",
 ]
 kang_meme = random.choice(KANGING_STR)
-@borg.on(admin_cmd(pattern="kangsticker ?(.*)"))
+@borg.on(admin_cmd(pattern="kang ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
