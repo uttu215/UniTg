@@ -52,7 +52,7 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.is_reply:
-        await event.edit(random.choice(KANGING_STR))
+        await event.edit(random.choice("Reply to a photo or a sticker to kang it")
         return
     reply_message = await event.get_reply_message()
     sticker_emoji = "🔥"
@@ -83,7 +83,7 @@ async def _(event):
             sticker.seek(0)
             uploaded_sticker = await borg.upload_file(sticker, file_name=file_ext_ns_ion)
 
-    
+    await event.edit(random.choice(KANGING_STR))
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
         dt = now + datetime.timedelta(minutes=1)
