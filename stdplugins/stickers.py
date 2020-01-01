@@ -45,7 +45,7 @@ KANGING_STR = [
     "Imprisoning this sticker...",
     "Mr.Steal Your Sticker is stealing this sticker... ",
 ]
-
+kang_meme = random.choice(KANGING_STR)
 @borg.on(admin_cmd(pattern="kangsticker ?(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -82,7 +82,7 @@ async def _(event):
             sticker.seek(0)
             uploaded_sticker = await borg.upload_file(sticker, file_name=file_ext_ns_ion)
 
-    await event.edit(random.choice(KANGING_STR))
+    await event.edit(f"`{kang_meme}`")
 
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
