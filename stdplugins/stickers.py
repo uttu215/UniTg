@@ -46,7 +46,7 @@ KANGING_STR = [
     "Mr.Steal Your Sticker is stealing this sticker... ",
 ]
 
-@borg.on(admin_cmd(pattern="kang ?(.*)"))
+@borg.on(admin_cmd(pattern="kangsticker ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
