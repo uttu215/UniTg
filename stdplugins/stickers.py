@@ -52,7 +52,7 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.is_reply:
-        await event.edit(random.choice("Reply to a photo or a sticker to kang it")
+        await event.edit("Reply to a photo or a sticker to kang it")
         return
     reply_message = await event.get_reply_message()
     sticker_emoji = "🔥"
