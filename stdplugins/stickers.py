@@ -13,6 +13,7 @@ import math
 import os
 import requests
 import zipfile
+import random
 from telethon.errors.rpcerrorlist import StickersetInvalidError
 from telethon.errors import MessageNotModifiedError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
