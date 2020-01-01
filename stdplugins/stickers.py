@@ -46,13 +46,13 @@ KANGING_STR = [
     "Imprisoning this sticker...",
     "Mr.Steal Your Sticker is stealing this sticker... ",
 ]
-kang_meme = random.choice(KANGING_STR)
+
 @borg.on(admin_cmd(pattern="kang ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
     if not event.is_reply:
-        await event.edit("Reply to a photo to add to my personal sticker pack.")
+        await event.edit(random.choice(KANGING_STR))
         return
     reply_message = await event.get_reply_message()
     sticker_emoji = "🔥"
@@ -83,8 +83,7 @@ async def _(event):
             sticker.seek(0)
             uploaded_sticker = await borg.upload_file(sticker, file_name=file_ext_ns_ion)
 
-    await event.edit(f"`{kang_meme}`")
-
+    
     async with borg.conversation("@Stickers") as bot_conv:
         now = datetime.datetime.now()
         dt = now + datetime.timedelta(minutes=1)
