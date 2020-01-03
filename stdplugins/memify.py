@@ -89,7 +89,7 @@ async def _(event):
             return
           else: 
                await borg.send_file(event.chat_id, response.media)
-               await borg.send_message(event.chat_id, "` 10 points to Griffindor! `")
+               
 
 def is_message_image(message):
     if message.media:
