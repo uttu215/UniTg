@@ -13,7 +13,7 @@ async def _(event):
            input_str = event.pattern_match.group(1)
            if input_str == "kk":
 
-                 await event.edit(input_str)
+                 
              
                  r = random.randint(0, 3)
                  logger.debug(r)
