@@ -19,5 +19,6 @@ async def _(event):
                  logger.debug(r)
                  if r == 0:
                      await event.edit("┏━━━┓\n┃┏━━┛\n┃┗━━┓\n┃┏━━┛\n┃┃\n┗┛")
-                 else r == 1:
+                 else:
+                     r == 1            
                      await event.edit("╭━━━╮\n┃╭━━╯\n┃╰━━╮\n┃╭━━╯\n┃┃\n╰╯")
