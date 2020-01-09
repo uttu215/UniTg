@@ -1,7 +1,7 @@
 {
   "name": "UniBorg",
-  "description": "Modular UserBot powered by @TelethonChat!",
-  "logo": "https://telegra.ph/file/6ce444f5ba54d79fb8622.jpg",
+  "description": "Nothing special here.Still give it a try",
+  "logo": "https://telegra.ph/file/1ae927206af0d1d5d9492.jpg",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://gitlab.com/SpEcHiDe/UniBorg",
+  "repository": "https://github.com/shreyansh8184/UniBorg/tree/master/stdplugins",
   "website": "https://telegram.dog/UniBorg",
   "success_url": "https://t.me/UniBorg/5",
   "env": {
@@ -145,6 +145,7 @@
     },
     "TZ": {
       "description": "set your default time zone for time related features to work correctly. Value should match the string here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+      "value": "Asia/Kolkata",
       "required": false
     },
     "VERY_STREAM_LOGIN": {
@@ -163,6 +164,16 @@
       "description": "Get your credentials from https://da.gd/so63O",
       "required": false
     }
+    "LYDIA_API": {
+      "description": "This Module Needs CoffeeHouse API to work. so Join https://telegram.dog/IntellivoidDev and send #activateapi and follow instructions.",
+      "value": "GET API TO MAKE AI WORK",
+      "required": false
+    },
+    "OCR_SPACE_API_KEY": {
+      "description": "Get an API Key from http://OCR.Space",
+      "required": false
+    },
+  
   },
   "addons": [{
     "plan": "heroku-postgresql",
