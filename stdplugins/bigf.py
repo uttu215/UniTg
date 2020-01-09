@@ -1,3 +1,6 @@
+"""command: .kk"""
+
+
 from telethon import events
 
 import asyncio
