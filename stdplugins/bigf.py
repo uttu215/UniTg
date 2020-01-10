@@ -1,4 +1,4 @@
-"""command: .kk
+"""command: .bigf
 By- @Grandpaa_please """
 
 
@@ -15,7 +15,7 @@ import logging
 async def _(event):
 
            input_str = event.pattern_match.group(1)
-           if input_str == "kk":
+           if input_str == "bigf":
 
                  
              
