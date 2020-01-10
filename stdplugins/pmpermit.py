@@ -1,7 +1,7 @@
 """Personal Message Spammer
 Available Commands:
-.approve
-.block
+.pm
+.dis
 .list approved pms"""
 import asyncio
 import json
