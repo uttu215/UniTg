@@ -4,11 +4,12 @@
 from telethon import events
 
 import asyncio
+import io
 
 
 
 
-
+DEFAULTUSER = Config.ALIVE_NAME
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
 async def _(event):
@@ -38,8 +39,8 @@ async def _(event):
             "`cracking... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`cracking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`cracking... 69%\n█████████████████████▒▒▒▒ `",
-            "`cracking... 100%\n█████████HACKED███████████ `",
-            "`Account cracked...\n\nPay 69$ To Satwik ro get id and password `"
+            "`cracking... 100%\n█████████CRACKED███████████ `",
+            f"`Account cracked...\n\nPay 69$ To {DEFAULTUSER} get id and password `"
         ]
 
         for i in animation_ttl:
