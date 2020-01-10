@@ -105,6 +105,11 @@
       "description": "Obtain a Telegram bot @username by contacting @BotFather",
       "required": false
     },
+    "AUTO_PIC": {
+      "description": "Needed for autopic module. A url that is a preview link of your Profile Pic",
+      "value": "",
+      "required": false
+    },
     "REM_BG_API_KEY": {
       "description": "Get your own API key from https://www.remove.bg/ or feel free to use http://telegram.dog/Remove_BGBot",
       "required": false
