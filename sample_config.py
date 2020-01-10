@@ -113,7 +113,11 @@ class Config(object):
     #Google Chrome Stuff
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+    #ALIVE_NAME
+    ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
     #
+    
+     
     
     AUTO_PIC = os.environ.get("AUTO_PIC", None)
     # Google Drive ()
