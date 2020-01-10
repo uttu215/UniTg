@@ -3,11 +3,12 @@
 from telethon import events
 
 import asyncio
+import io
 
 
 
 
-
+DEFAULTUSER = Config.ALIVE_NAME
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
 async def _(event):
@@ -38,7 +39,7 @@ async def _(event):
             "`Hacking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`Hacking... 84%\n█████████████████████▒▒▒▒ `",
             "`Hacking... 100%\n█████████HACKED███████████ `",
-            "`Targeted Account Hacked...\n\nPay 999$ To Satwik To Remove This Hack`"
+            "`Targeted Account Hacked...\n\nPay 999$ To {DEFAULTUSER} To Remove This Hack`"
         ]
 
         for i in animation_ttl:
