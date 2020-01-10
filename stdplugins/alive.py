@@ -18,4 +18,4 @@ async def _(event):
                      f"Python: 3.8 \n"
                      f"User: {DEFAULTUSER}"
                      "`")
-                 await event.delete()
+                 
