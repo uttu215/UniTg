@@ -4,10 +4,8 @@ from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
 from uniborg.util import admin_cmd
 
-DEFAULTUSER = str(ALIVE_NAME)
-    if ALIVE_NAME
-    else:
-        DEFAULTUSER = ""
+DEFAULTUSER = Config.ALIVE_NAME
+    
 @borg.on(admin_cmd("alive"))
 async def _(event):
     if event.fwd_from:
