@@ -13,6 +13,27 @@ METOOSTR = [
     "`Haha yes`",
     "`Same pinch bsdk`",
 ]
+RUNS_STR = [
+    "Runs to Thanos..",
+    "Runs far, far away from earth..",
+    "Running faster than Bolt coz i'mma userbot !!",
+    "Runs to Marie..",
+    "This Group is too cancerous to deal with.",
+    "Cya bois",
+    "Kys",
+    "I go away",
+    "I am just walking off, coz me is too fat.",
+    "I Fugged off!",
+    "Will run for chocolate.",
+    "I run because I really like food.",
+    "Running...\nbecause dieting is not an option.",
+    "Wicked fast runnah",
+    "If you wanna catch me, you got to be fast...\nIf you wanna stay with me, you got to be good...\nBut if you wanna pass me...\nYou've got to be kidding.",
+    "Anyone can run a hundred meters, it's the next forty-two thousand and two hundred that count.",
+    "Why are all these people following me?",
+    "Are the kids still chasing me?",
+    "Running a marathon...there's an app for that.",
+]
 NOOBSTR = [
     "`YOU PRO NIMBA DONT MESS WIDH MEH`",
     "`Haha yes`",
@@ -50,7 +71,57 @@ RAPE_STRINGS = [
      "`Lodu Andha hai kya Yaha tera rape ho raha hai aur tu abhi tak yahi gaand mara raha hai lulz`",
 ] 
 
-
+CHASE_STR = [
+    "Where do you think you're going?",
+    "Huh? what? did they get away?",
+    "ZZzzZZzz... Huh? what? oh, just them again, nevermind.",
+    "Get back here!",
+    "Not so fast...",
+    "Look out for the wall!",
+    "Don't leave me alone with them!!",
+    "You run, you die.",
+    "Jokes on you, I'm everywhere",
+    "You're gonna regret that...",
+    "You could also try /kickme, I hear that's fun.",
+    "Go bother someone else, no-one here cares.",
+    "You can run, but you can't hide.",
+    "Is that all you've got?",
+    "I'm behind you...",
+    "You've got company!",
+    "We can do this the easy way, or the hard way.",
+    "You just don't get it, do you?",
+    "Yeah, you better run!",
+    "Please, remind me how much I care?",
+    "I'd run faster if I were you.",
+    "That's definitely the droid we're looking for.",
+    "May the odds be ever in your favour.",
+    "Famous last words.",
+    "And they disappeared forever, never to be seen again.",
+    "\"Oh, look at me! I'm so cool, I can run from a bot!\" - this person",
+    "Yeah yeah, just tap /kickme already.",
+    "Here, take this ring and head to Mordor while you're at it.",
+    "Legend has it, they're still running...",
+    "Unlike Harry Potter, your parents can't protect you from me.",
+    "Fear leads to anger. Anger leads to hate. Hate leads to suffering. If you keep running in fear, you might "
+    "be the next Vader.",
+    "Multiple calculations later, I have decided my interest in your shenanigans is exactly 0.",
+    "Legend has it, they're still running.",
+    "Keep it up, not sure we want you here anyway.",
+    "You're a wiza- Oh. Wait. You're not Harry, keep moving.",
+    "NO RUNNING IN THE HALLWAYS!",
+    "Hasta la vista, baby.",
+    "Who let the dogs out?",
+    "It's funny, because no one cares.",
+    "Ah, what a waste. I liked that one.",
+    "Frankly, my dear, I don't give a damn.",
+    "My milkshake brings all the boys to yard... So run faster!",
+    "You can't HANDLE the truth!",
+    "A long time ago, in a galaxy far far away... Someone would've cared about that. Not anymore though.",
+    "Hey, look at them! They're running from the inevitable banhammer... Cute.",
+    "Han shot first. So will I.",
+    "What are you running after, a white rabbit?",
+    "As The Doctor would say... RUN!",
+]
 ABUSEHARD_STRING = [
 	"`Madarchod Randi ke bacche.Oye bosdike madarchod bhen ke lode tere gand me lohe ka danda garam karke dalu randwe tujhetho gali ke kutte gand pe chut rakh ke katenge me bata raha hu tere lode pe madhu makkhi Katelode ke ando pe Road roller chale tu kab bathroom me muthne Jaye tho Tera loda ghir Jaye fir tere ando me se lizard ke bacche nikle teko kidnap Kare aur childporn banaye maa ke chuttad ke lode tere saat Johnny sins rape Kare aur jab wo teko anal de tab loda andar fas Jaye bkl tere jhaat pe waxing karunga me dhek lio fir jab tu chillayega na tab tere muh me Mai gai ka gobar dalunga sale tere gand ke balo pe tel laga ke jala du me teko Anaconda leke gand me dalu tho muh se nikle maa ke lode hamesha chutiyo jaisa bartav kartha he tu maa ke Dai chawal drugs tere gand Me dalunga thi tatti nahi nikle maa darchod kabhi teko Marne ka mouka mil gaya na tho bas I'll do my best to get that tatti outof you aur tere jaise chutio ko is duniya me jagaha bhi nahi maa ke lode bandarchod tere gand me chitiya Kate wo bhi bullet ants maadarchod samj nahi aaraha tere baap NE teko kya khake paida kiya Tha kesa chutiya he tu rand ke bacche teko shadi me khana khane na mile teko gand pe 4 thappad mare sab log aur blade se likhe I want anal madarchod bosdike maccharki tatte ke baal chutiye maa ke chut pe ghode ka Lund tere gand me jaltha hu koila Dale bhen ke lode MAA KI CHUT MAI TALWAR DUNGA BC CHUT FAT JAEGI AUR USME SE ITNA KHOON NIKLEGA MZA AJAEGA DEKHNE KA SALE MAA KE BHOSDE SE BAHR AJA FIR BAAP SE ZUBAN DA TERI MAA KI CHUT CHOD CHOD KE BHOSDABNADU MADARCHOD AUR USKE UPAR CENENT LAGADU KI TERE JESA GANDU INSAAN KABHI BAHR NA A SKE ESI GANDI CHUT MAI SE LODA LASUN MADRCHOD TERI MAA KI CHUT GASTI AMA KA CHUTIA BACHA TERI MAA KO CHOD CHOD K PAGAL KAR DUNGA MAA K LODY KISI SASTIII RANDII K BACHY TERI MAA KI CHOOT MAIN TEER MAARUN GANDU HARAMI TERI COLLEGE JATI BAJI KA ROAD PEY RAPE KARONGANDU KI OLAAD HARAM KI NASAL PAPA HUN TERA BHEN PESH KAR AB PAPA KO TERI MAA KKALE KUSS MAIN KIS`",
 	"`Main roz teri behno ki banjar chut me apna lawda daalke andar haryali lata tha magar aaj unke ke baare me sunke mujhe bhut afsos huwa..ki unko ab bada loudha chahye..ab mera balatkaaari lawda lagataar 4 ghante tk apne muh me kon rakhega..vo teri behne hi thi jo apni kaali magar rasilli chut mere saamne khol deti aur zameen pe naagin ki tarah rengne lgti thi jaise ki kisine unki chut pe naariyal tod diya ho vo b bada wala mumbai ka naariyal..apni chennal maa ko b nhi bhej rahe mere paas to main kaixe tum logo se vaada karu ki main teri maa chodd dungaw..ab agar tun sach me chahta hai ki main tum dono k mc ki chut me dhammal karu to mera lawda apne muh me rakho aur kaho Sameer hamare sage papa hain... Aur agar tb b the apni maa ki kaali chut mere saamne nahi rakhi to tumhare ghar me ghuske tumhari maa ka balatkaar kar dungaw jaixe delhi me huwa tha...ab teri chudi hui kuttiyo ki tarah apni gaand hilaate hue mere aage kalapna mt ni to tumhari fatti bhoxdi me 100 ched karunga`",
@@ -307,7 +378,23 @@ async def _(event):
     reply_text = GEY_STRINGS[bro]
     await event.edit(reply_text)       
 	
+@borg.on(admin_cmd("run ?(.*)"))
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(RUNS_STR) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = RUNS_STR[bro]
+    await event.edit(reply_text)
 	
+@borg.on(admin_cmd("chase ?(.*)"))
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(CHASE_STR) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = CHASE_STR[bro]
+    await event.edit(reply_text)
 	
 @borg.on(admin_cmd("noob ?(.*)"))
 async def _(event):
@@ -326,8 +413,9 @@ async def _(event):
     bro = random.randint(0, len(ABUSEHARD_STRING) - 1)    
     input_str = event.pattern_match.group(1)
     reply_text = ABUSEHARD_STRING[bro]
-    await event.edit(reply_text)        
+    await event.edit(reply_text)   
 	
+
 
 @borg.on(admin_cmd("slap ?(.*)"))
 async def who(event):
