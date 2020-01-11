@@ -29,6 +29,11 @@
       "description": "CHROME Binary PATH",
       "value":"/app/.apt/usr/bin/google-chrome"
     },
+    "AUTO_PIC": {
+      "description": "Needed for autopic module. A url that is a preview link of your Profile Pic",
+      "required": false
+    },
+      
     "CHROME_DRIVER":{
       "description": "CHROME Binary PATH",
       "value":"/app/.chromedriver/bin/chromedriver"
