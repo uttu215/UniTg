@@ -1,5 +1,5 @@
-"""Commands in fun modules are"""
-""" .face,.react,.run,.runs,.hello,.abuse,.abusehard,.gey,.insult,.cry,.happy,.slap,.pro,.rape """
+"""Commands in fun modules are
+   .face,.react,.run,.runs,.hello,.abuse,.abusehard,.gey,.insult,.cry,.happy,.slap,.pro,.rape """
 from telethon import events
 import random, re
 from uniborg.util import admin_cmd
