@@ -111,9 +111,9 @@
       
     "ALIVE_NAME": {
       "description": "Your Telegram Username. ",
-      "value": "",
       "required": false
     },
+      
       
     
     "REM_BG_API_KEY": {
