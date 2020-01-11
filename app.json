@@ -82,6 +82,11 @@
       "value": "https://example.com/torrent/{}",
       "required": false
     },
+    "LYDIA_API": {
+      "description": "This Module Needs CoffeeHouse API to work. so Join https://telegram.dog/IntellivoidDev and send #activateapi and follow instructions.",
+      "value": "GET API TO MAKE AI WORK",
+      "required": false
+    },
     "TELEGRAPH_SHORT_NAME": {
       "description": "This is required for the @telegraph functionality.",
       "value": "UniBorg",
