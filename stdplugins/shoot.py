@@ -16,7 +16,7 @@ KILLSTR = [
     "Knife",
     "Diamond Sword",
 ]    
-KILL = random.choice(KILLSTR)
+
 
 @borg.on(admin_cmd(pattern="kill$ ?(.*)", allow_sudo=True))  # pylint:disable=E0602
 async def killing (killed):
@@ -24,6 +24,6 @@ async def killing (killed):
     if not killed.text[0].isalpha() and killed.text[0] not in ("/", "#", "@", "!"):
         if await killed.get_reply_message():
             await killed.edit(
-                f"Targeted user killed with {KILL} 😈......\n"
+                f"Targeted user killed with {random.choice(KILLSTR)} 😈......\n"
   "#Sad_Reacts_Onli\n"
             )
