@@ -109,10 +109,7 @@
       "description": "Needed for autopic module. A url that is a preview link of your Profile Pic",
       "required": false
       
-    "ALIVE_NAME": {
-      "description": "Your Telegram Username.",
-      "required": false
-    },
+    
       
       
     
