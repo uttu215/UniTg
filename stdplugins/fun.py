@@ -536,7 +536,7 @@ ABUSE_STRINGS = [
            "`Suno Lodu Jyda muh na chalo be muh me lawda pel Diyaa jayega`",
            "`Sharam aagyi toh aakhe juka lijia land me dam nhi hai apke toh Shilajit kha lijia`",
            "`Kahe Rahiman Kaviraaj C**t Ki Mahima Aisi,L**d Murjha Jaaye Par Ch**t Waisi Ki Waisi`",
-           "`Chudakkad Raand Ki Ch**T Mein Pele L*Nd Kabeer, Par Aisa Bhi Kya Choda Ki Ban Gaye   
+           "`Chudakkad Raand Ki Ch**T Mein Pele L*Nd Kabeer, Par Aisa Bhi Kya Choda Ki Ban Gaye  `",
            "`Taali bajao Lawde ke liye`",
 	
 ]
