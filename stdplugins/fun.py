@@ -1,3 +1,5 @@
+"""Commands in fun modules are"""
+""" .face,.react,.run,.runs,.hello,.abuse,.abusehard,.gey,.insult,.cry,.happy,.slap,.pro,.rape """
 from telethon import events
 import random, re
 from uniborg.util import admin_cmd
@@ -13,6 +15,347 @@ METOOSTR = [
     "`Haha yes`",
     "`Same pinch bsdk`",
 ]
+ZALG_LIST = [[
+    "̖",
+    " ̗",
+    " ̘",
+    " ̙",
+    " ̜",
+    " ̝",
+    " ̞",
+    " ̟",
+    " ̠",
+    " ̤",
+    " ̥",
+    " ̦",
+    " ̩",
+    " ̪",
+    " ̫",
+    " ̬",
+    " ̭",
+    " ̮",
+    " ̯",
+    " ̰",
+    " ̱",
+    " ̲",
+    " ̳",
+    " ̹",
+    " ̺",
+    " ̻",
+    " ̼",
+    " ͅ",
+    " ͇",
+    " ͈",
+    " ͉",
+    " ͍",
+    " ͎",
+    " ͓",
+    " ͔",
+    " ͕",
+    " ͖",
+    " ͙",
+    " ͚",
+    " ",
+],
+             [
+                 " ̍",
+                 " ̎",
+                 " ̄",
+                 " ̅",
+                 " ̿",
+                 " ̑",
+                 " ̆",
+                 " ̐",
+                 " ͒",
+                 " ͗",
+                 " ͑",
+                 " ̇",
+                 " ̈",
+                 " ̊",
+                 " ͂",
+                 " ̓",
+                 " ̈́",
+                 " ͊",
+                 " ͋",
+                 " ͌",
+                 " ̃",
+                 " ̂",
+                 " ̌",
+                 " ͐",
+                 " ́",
+                 " ̋",
+                 " ̏",
+                 " ̽",
+                 " ̉",
+                 " ͣ",
+                 " ͤ",
+                 " ͥ",
+                 " ͦ",
+                 " ͧ",
+                 " ͨ",
+                 " ͩ",
+                 " ͪ",
+                 " ͫ",
+                 " ͬ",
+                 " ͭ",
+                 " ͮ",
+                 " ͯ",
+                 " ̾",
+                 " ͛",
+                 " ͆",
+                 " ̚",
+             ],
+             [
+                 " ̕",
+                 " ̛",
+                 " ̀",
+                 " ́",
+                 " ͘",
+                 " ̡",
+                 " ̢",
+                 " ̧",
+                 " ̨",
+                 " ̴",
+                 " ̵",
+                 " ̶",
+                 " ͜",
+                 " ͝",
+                 " ͞",
+                 " ͟",
+                 " ͠",
+                 " ͢",
+                 " ̸",
+                 " ̷",
+                 " ͡",
+             ]]
+EMOJIS = [
+    "😂",
+    "😂",
+    "👌",
+    "✌",
+    "💞",
+    "👍",
+    "👌",
+    "💯",
+    "🎶",
+    "👀",
+    "😂",
+    "👓",
+    "👏",
+    "👐",
+    "🍕",
+    "💥",
+    "🍴",
+    "💦",
+    "💦",
+    "🍑",
+    "🍆",
+    "😩",
+    "😏",
+    "👉👌",
+    "👀",
+    "👅",
+    "😩",
+    "🚰",
+]
+UWUS = [
+    "(・`ω´・)",
+    ";;w;;",
+    "owo",
+    "UwU",
+    ">w<",
+    "^w^",
+    r"\(^o\) (/o^)/",
+    "( ^ _ ^)∠☆",
+    "(ô_ô)",
+    "~:o",
+    ";-;",
+    "(*^*)",
+    "(>_",
+    "(♥_♥)",
+    "*(^O^)*",
+    "((+_+))",
+]
+FACEREACTS = [
+    "ʘ‿ʘ",
+    "ヾ(-_- )ゞ",
+    "(っ˘ڡ˘ς)",
+    "(´ж｀ς)",
+    "( ಠ ʖ̯ ಠ)",
+    "(° ͜ʖ͡°)╭∩╮",
+    "(ᵟຶ︵ ᵟຶ)",
+    "(งツ)ว",
+    "ʚ(•｀",
+    "(っ▀¯▀)つ",
+    "(◠﹏◠)",
+    "( ͡ಠ ʖ̯ ͡ಠ)",
+    "( ఠ ͟ʖ ఠ)",
+    "(∩｀-´)⊃━☆ﾟ.*･｡ﾟ",
+    "(⊃｡•́‿•̀｡)⊃",
+    "(._.)",
+    "{•̃_•̃}",
+    "(ᵔᴥᵔ)",
+    "♨_♨",
+    "⥀.⥀",
+    "ح˚௰˚づ ",
+    "(҂◡_◡)",
+    "ƪ(ړײ)‎ƪ​​",
+    "(っ•́｡•́)♪♬",
+    "◖ᵔᴥᵔ◗ ♪ ♫ ",
+    "(☞ﾟヮﾟ)☞",
+    "[¬º-°]¬",
+    "(Ծ‸ Ծ)",
+    "(•̀ᴗ•́)و ̑̑",
+    "ヾ(´〇`)ﾉ♪♪♪",
+    "(ง'̀-'́)ง",
+    "ლ(•́•́ლ)",
+    "ʕ •́؈•̀ ₎",
+    "♪♪ ヽ(ˇ∀ˇ )ゞ",
+    "щ（ﾟДﾟщ）",
+    "( ˇ෴ˇ )",
+    "눈_눈",
+    "(๑•́ ₃ •̀๑) ",
+    "( ˘ ³˘)♥ ",
+    "ԅ(≖‿≖ԅ)",
+    "♥‿♥",
+    "◔_◔",
+    "⁽⁽ଘ( ˊᵕˋ )ଓ⁾⁾",
+    "乁( ◔ ౪◔)「      ┑(￣Д ￣)┍",
+    "( ఠൠఠ )ﾉ",
+    "٩(๏_๏)۶",
+    "┌(ㆆ㉨ㆆ)ʃ",
+    "ఠ_ఠ",
+    "(づ｡◕‿‿◕｡)づ",
+    "(ノಠ ∩ಠ)ノ彡( \\o°o)\\",
+    "“ヽ(´▽｀)ノ”",
+    "༼ ༎ຶ ෴ ༎ຶ༽",
+    "｡ﾟ( ﾟஇ‸இﾟ)ﾟ｡",
+    "(づ￣ ³￣)づ",
+    "(⊙.☉)7",
+    "ᕕ( ᐛ )ᕗ",
+    "t(-_-t)",
+    "(ಥ⌣ಥ)",
+    "ヽ༼ ಠ益ಠ ༽ﾉ",
+    "༼∵༽ ༼⍨༽ ༼⍢༽ ༼⍤༽",
+    "ミ●﹏☉ミ",
+    "(⊙_◎)",
+    "¿ⓧ_ⓧﮌ",
+    "ಠ_ಠ",
+    "(´･_･`)",
+    "ᕦ(ò_óˇ)ᕤ",
+    "⊙﹏⊙",
+    "(╯°□°）╯︵ ┻━┻",
+    r"¯\_(⊙︿⊙)_/¯",
+    "٩◔̯◔۶",
+    "°‿‿°",
+    "ᕙ(⇀‸↼‶)ᕗ",
+    "⊂(◉‿◉)つ",
+    "V•ᴥ•V",
+    "q(❂‿❂)p",
+    "ಥ_ಥ",
+    "ฅ^•ﻌ•^ฅ",
+    "ಥ﹏ಥ",
+    "（ ^_^）o自自o（^_^ ）",
+    "ಠ‿ಠ",
+    "ヽ(´▽`)/",
+    "ᵒᴥᵒ#",
+    "( ͡° ͜ʖ ͡°)",
+    "┬─┬﻿ ノ( ゜-゜ノ)",
+    "ヽ(´ー｀)ノ",
+    "☜(⌒▽⌒)☞",
+    "ε=ε=ε=┌(;*´Д`)ﾉ",
+    "(╬ ಠ益ಠ)",
+    "┬─┬⃰͡ (ᵔᵕᵔ͜ )",
+    "┻━┻ ︵ヽ(`Д´)ﾉ︵﻿ ┻━┻",
+    r"¯\_(ツ)_/¯",
+    "ʕᵔᴥᵔʔ",
+    "(`･ω･´)",
+    "ʕ•ᴥ•ʔ",
+    "ლ(｀ー´ლ)",
+    "ʕʘ̅͜ʘ̅ʔ",
+    "（　ﾟДﾟ）",
+    r"¯\(°_o)/¯",
+    "(｡◕‿◕｡)",
+]
+HELLOSTR = [
+    "Hi !",
+    "‘Ello, gov'nor!",
+    "What’s crackin’?",
+    "‘Sup, homeslice?",
+    "Howdy, howdy ,howdy!",
+    "Hello, who's there, I'm talking.",
+    "You know who this is.",
+    "Yo!",
+    "Whaddup.",
+    "Greetings and salutations!",
+    "Hello, sunshine!",
+    "Hey, howdy, hi!",
+    "What’s kickin’, little chicken?",
+    "Peek-a-boo!",
+    "Howdy-doody!",
+    "Hey there, freshman!",
+    "I come in peace!",
+    "Ahoy, matey!",
+    "Hiya!",
+]
+SHGS = [
+    "┐(´д｀)┌",
+    "┐(´～｀)┌",
+    "┐(´ー｀)┌",
+    "┐(￣ヘ￣)┌",
+    "╮(╯∀╰)╭",
+    "╮(╯_╰)╭",
+    "┐(´д`)┌",
+    "┐(´∀｀)┌",
+    "ʅ(́◡◝)ʃ",
+    "┐(ﾟ～ﾟ)┌",
+    "┐('д')┌",
+    "┐(‘～`;)┌",
+    "ヘ(´－｀;)ヘ",
+    "┐( -“-)┌",
+    "ʅ（´◔౪◔）ʃ",
+    "ヽ(゜～゜o)ノ",
+    "ヽ(~～~ )ノ",
+    "┐(~ー~;)┌",
+    "┐(-。ー;)┌",
+    r"¯\_(ツ)_/¯",
+    r"¯\_(⊙_ʖ⊙)_/¯",
+    r"¯\_༼ ಥ ‿ ಥ ༽_/¯",
+    "乁( ⁰͡  Ĺ̯ ⁰͡ ) ㄏ",
+]
+CRI = [
+    "أ‿أ",
+    "╥﹏╥",
+    "(;﹏;)",
+    "(ToT)",
+    "(┳Д┳)",
+    "(ಥ﹏ಥ)",
+    "（；へ：）",
+    "(T＿T)",
+    "（πーπ）",
+    "(Ｔ▽Ｔ)",
+    "(⋟﹏⋞)",
+    "（ｉДｉ）",
+    "(´Д⊂ヽ",
+    "(;Д;)",
+    "（>﹏<）",
+    "(TдT)",
+    "(つ﹏⊂)",
+    "༼☯﹏☯༽",
+    "(ノ﹏ヽ)",
+    "(ノAヽ)",
+    "(╥_╥)",
+    "(T⌓T)",
+    "(༎ຶ⌑༎ຶ)",
+    "(☍﹏⁰)｡",
+    "(ಥ_ʖಥ)",
+    "(つд⊂)",
+    "(≖͞_≖̥)",
+    "(இ﹏இ`｡)",
+    "༼ಢ_ಢ༽",
+    "༼ ༎ຶ ෴ ༎ຶ༽",
+]
+
 RUNS_STR = [
     "Runs to Thanos..",
     "Runs far, far away from earth..",
@@ -142,6 +485,42 @@ ABUSEHARD_STRING = [
         "`Gand mare gandu Chut mare Chutiya Sabse accha mutti 2 mint me chutti😛`",
         "`Marzi Ka Sex Pap Nahi Hota.. Piche Se Dalne Wala Kabhi Baap Nahi Hota.. Condom Zarur Lagana Mere Dost Qki.. Sex K Waqt Popat Ke Pass Dimag Nahi Hota.`",
         "`Uss Ne Hothon Se Chhu Kar Lowd* Pe Nasha Kar Diya; Lu*D Ki Baat To Aur Thi, Uss Ne To Jhato* Ko Bhi Khada Kar Diya!`",
+	"`Mashoor Rand, Ne Arz Kiya Hai. Aane Wale Aate Hai, Jaane Wale Jaate Hai. Yaade Bas Unki Reh Jaati Hai, Jo G**Nd Sujaa Ke Jaate Hai`",
+     "`Pani kam hai matkey me ga*d mardunga teri ek jatke me`",
+     "`Aand kitne bhi bade ho, lund ke niche hi rehte hai`",
+     "`Tum Ameer hum gareeb hum jhopdiwale Tum bhosiwale`",
+     "`Sisi Bhari Gulab ki padi palang ke pass chodne wale chod gye ab q baitha udaas`",
+     "`Phuloo Ka Raja Gulaab Kaato me Rehta hai Jeewan ka Nirmata jaato me rehta hai😂`",
+     "`Chude hue maal ko yaad mt krna Jo Chut na de usse kabhi friyad mt karna jise chudna hai wo chud ke rhegi bekar me muth maar ke apni jindagi barbaad mt krna`",
+     "`Gand mare gandu Chut mare Chutiya Sabse accha mutti 2 mint me chutti😛`",
+     "`Marzi Ka Sex Pap Nahi Hota.. Piche Se Dalne Wala Kabhi Baap Nahi Hota.. Condom Zarur Lagana Mere Dost Qki.. Sex K Waqt Popat Ke Pass Dimag Nahi Hota.`",
+     "`Uss Ne Hothon Se Chhu Kar Lowd* Pe Nasha Kar Diya; Lu*D Ki Baat To Aur Thi, Uss Ne To Jhato* Ko Bhi Khada Kar Diya!`",
+     "`Mashoor Rand, Ne Arz Kiya Hai. Aane Wale Aate Hai, Jaane Wale Jaate Hai. Yaade Bas Unki Reh Jaati Hai, Jo G**Nd Sujaa Ke Jaate Hai`",
+     "`Pani kam hai matkey me ga*d mardunga teri ek jatke me`",
+     "`Aand kitne bhi bade ho, lund ke niche hi rehte hai`",
+     "`Tum Ameer hum gareeb hum jhopdiwale Tum bhosiwale`",
+     "`Sisi Bhari Gulab ki padi palang ke pass chodne wale chod gye ab q baitha udaas`",
+     "`Phuloo Ka Raja Gulaab Kaato me Rehta hai Jeewan ka Nirmata jaato me rehta hai😂`",
+     "`Chude hue maal ko yaad mt krna Jo Chut na de usse kabhi friyad mt karna jise chudna hai wo chud ke rhegi bekar me muth maar ke apni jindagi barbaad mt krna`",
+     "`Gand mare gandu Chut mare Chutiya Sabse accha mutti 2 mint me chutti😛`",
+     "`Marzi Ka Sex Pap Nahi Hota.. Piche Se Dalne Wala Kabhi Baap Nahi Hota.. Condom Zarur Lagana Mere Dost Qki.. Sex K Waqt Popat Ke Pass Dimag Nahi Hota.`",
+     "`Uss Ne Hothon Se Chhu Kar Lowd* Pe Nasha Kar Diya; Lu*D Ki Baat To Aur Thi, Uss Ne To Jhato* Ko Bhi Khada Kar Diya!`",
+     "`Taare hai Asmaan me very very bright jhaat na jla bsdk dekh le apni height.`",
+     "`jindagi ki na toote lari iski lulli hoti nhi khadi`",
+     "`Kbhi kbhi meri dil me khyaal ata hai ayse chutiyo ko kon paida kr jata hai😂.`",
+     "`Saawan ka mahina pawan kare shor jake gand mara bskd kahi aur.`", 
+     "`Dil ke armaa ansuon me beh jaye tum bskd ke chutiye hi reh gye.`",
+     "`Ishq Se Tabiyat Ne Zeest Ka Mazaa aya maine is lodu ko randi khane me paya.`",
+     "`Mirza galib ki yeh khani hai tu bhosdika hai yeh sab ki jubani hai.`",
+     "`It's better to let someone think you are an Idiot than to open your mouth and prove it.`",
+     "`Talking to a liberal is like trying to explain social media to a 70 years old`",
+     "`CHAND PE HAI APUN LAWDE.`",
+     "`Pehle main tereko chakna dega, fir daru pilayega, fir jab aap dimag se nahi L*nd se sochoge, tab bolega..`",
+     "`Pardhan mantri se number liya, parliament apne ;__; baap ka hai...`",
+     "`Cachaa Ooo bhosdi wale Chacha`",
+     "`Aaisi Londiya Chodiye, L*nd Ka Aapa Khoye, Auro Se Chudi Na Ho, Biwi Wo Hi Hoye`",
+     "`Nachoo Bhosdike Nachoo`",
+     "`Jinda toh Jhaat ke Baal bhi hai`",
 ]
 
 ABUSE_STRINGS = [
@@ -157,7 +536,42 @@ ABUSE_STRINGS = [
            "`Suno Lodu Jyda muh na chalo be muh me lawda pel Diyaa jayega`",
            "`Sharam aagyi toh aakhe juka lijia land me dam nhi hai apke toh Shilajit kha lijia`",
            "`Kahe Rahiman Kaviraaj C**t Ki Mahima Aisi,L**d Murjha Jaaye Par Ch**t Waisi Ki Waisi`",
-           "`Chudakkad Raand Ki Ch**T Mein Pele L*Nd Kabeer, Par Aisa Bhi Kya Choda Ki Ban Gaye Fakeer`",
+           "`Chudakkad Raand Ki Ch**T Mein Pele L*Nd Kabeer, Par Aisa Bhi Kya Choda Ki Ban Gaye   
+           "`Taali bajao Lawde ke liye`",
+	
+]
+
+CRI = [
+    "أ‿أ",
+    "╥﹏╥",
+    "(;﹏;)",
+    "(ToT)",
+    "(┳Д┳)",
+    "(ಥ﹏ಥ)",
+    "（；へ：）",
+    "(T＿T)",
+    "（πーπ）",
+    "(Ｔ▽Ｔ)",
+    "(⋟﹏⋞)",
+    "（ｉДｉ）",
+    "(´Д⊂ヽ",
+    "(;Д;)",
+    "（>﹏<）",
+    "(TдT)",
+    "(つ﹏⊂)",
+    "༼☯﹏☯༽",
+    "(ノ﹏ヽ)",
+    "(ノAヽ)",
+    "(╥_╥)",
+    "(T⌓T)",
+    "(༎ຶ⌑༎ຶ)",
+    "(☍﹏⁰)｡",
+    "(ಥ_ʖಥ)",
+    "(つд⊂)",
+    "(≖͞_≖̥)",
+    "(இ﹏இ`｡)",
+    "༼ಢ_ಢ༽",
+    "༼ ༎ຶ ෴ ༎ຶ༽",
 ]
 GEY_STRINGS = [
           "`you gey bsdk`",
@@ -376,7 +790,16 @@ async def _(event):
     bro = random.randint(0, len(GEY_STRINGS) - 1)    
     input_str = event.pattern_match.group(1)
     reply_text = GEY_STRINGS[bro]
-    await event.edit(reply_text)       
+    await event.edit(reply_text)    
+	
+@borg.on(admin_cmd("happy ?(.*)"))
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(UWUS) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = UWUS[bro]
+    await event.edit(reply_text)
 	
 @borg.on(admin_cmd("run ?(.*)"))
 async def _(event):
@@ -385,6 +808,15 @@ async def _(event):
     bro = random.randint(0, len(RUNS_STR) - 1)    
     input_str = event.pattern_match.group(1)
     reply_text = RUNS_STR[bro]
+    await event.edit(reply_text)
+
+@borg.on(admin_cmd("cry ?(.*)"))	
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(CRI) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = CRI[bro]
     await event.edit(reply_text)
 	
 @borg.on(admin_cmd("chase ?(.*)"))
@@ -415,7 +847,32 @@ async def _(event):
     reply_text = ABUSEHARD_STRING[bro]
     await event.edit(reply_text)   
 	
-
+@borg.on(admin_cmd("face ?(.*)"))	
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(FACEREACTS) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = FACEREACTS[bro]
+    await event.edit(reply_text)
+	
+@borg.on(admin_cmd("react ?(.*)"))
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(SHGS) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = SHGS[bro]
+    await event.edit(reply_text)	
+	
+@borg.on(admin_cmd("hello ?(.*)"))
+async def _(event):
+    if event.fwd_from:
+         return
+    bro = random.randint(0, len(HELLOSTR) - 1)    
+    input_str = event.pattern_match.group(1)
+    reply_text = HELLOSTR[bro]
+    await event.edit(reply_text)
 
 @borg.on(admin_cmd("slap ?(.*)"))
 async def who(event):
