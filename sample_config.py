@@ -7,7 +7,7 @@ from telethon.tl.types import ChatBannedRights
 
 class Config(object):
     LOGGER = True
-    # Add your name to appear when you do .alive,.hack or .netflix
+    # Your Telegram Username
     ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
     # Get this value from my.telegram.org! Please do not steal
     APP_ID = int(os.environ.get("APP_ID", 6))
@@ -40,6 +40,8 @@ class Config(object):
     G_BAN_LOGGER_GROUP = int(os.environ.get("G_BAN_LOGGER_GROUP", -100123456789))
     # TG API limit. An album can have atmost 10 media!
     GOOGLE_SEARCH_COUNT_LIMIT = int(os.environ.get("GOOGLE_SEARCH_COUNT_LIMIT", 9))
+    #Needed for autopic module. A url that is a preview link of your Profile Pic
+    AUTO_PIC = os.environ.get("AUTO_PIC", None)
     TG_GLOBAL_ALBUM_LIMIT = int(os.environ.get("TG_GLOBAL_ALBUM_LIMIT", 9))
     # Telegram BOT Token from @BotFather
     TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
@@ -115,9 +117,7 @@ class Config(object):
     #Google Chrome Stuff
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
-    #ALIVE_NAME
-    ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
-    #
+    
     
      
     
