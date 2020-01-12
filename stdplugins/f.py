@@ -1,4 +1,3 @@
-""" .f emoji or chracter
 
 from telethon import events
 import asyncio
