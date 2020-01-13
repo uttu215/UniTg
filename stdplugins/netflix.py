@@ -40,7 +40,7 @@ async def _(event):
             "`cracking... 52%\n█████████████▒▒▒▒▒▒▒▒▒▒▒▒ `",
             "`cracking... 69%\n█████████████████████▒▒▒▒ `",
             "`cracking... 100%\n█████████CRACKED███████████ `",
-            f"`Account cracked...\n\nPay 69$ To {DEFAULTUSER} get id and password `"
+            f"Account cracked...\n\nPay 69$ To {DEFAULTUSER} get id and password "
         ]
 
         for i in animation_ttl:
