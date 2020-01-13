@@ -15,6 +15,7 @@ KILLSTR = [
     "UMP9",
     "Knife",
     "Diamond Sword",
+    "Pan",
 ]    
 
 
