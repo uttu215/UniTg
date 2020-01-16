@@ -763,7 +763,7 @@ async def _(event):
     await event.edit(reply_text)
 			  
 			  
-@borg.on(admin_cmd("pro ?(.*)"))
+@borg.on(admin_cmd("pr ?(.*)"))
 async def _(event):
     if event.fwd_from:
          return
