@@ -29,3 +29,5 @@ oauth2client
 httplib2
 pySmartDL
 PyPDF2
+cowsay
+wget
