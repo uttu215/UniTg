@@ -31,3 +31,4 @@ pySmartDL
 PyPDF2
 cowsay
 wget
+hurry
