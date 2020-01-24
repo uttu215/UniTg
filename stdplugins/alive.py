@@ -14,7 +14,7 @@ async def _(event):
            if input_str == "alive":
                  await event.reply(""
                      "My bot is running \n\n"
-                     f"Telethon version: 1.10 \n"
+                     f"Telethon version: 1.10.10 \n"
                      f"Python: 3.8 \n"
                      f"User: {DEFAULTUSER}"
                      "")
