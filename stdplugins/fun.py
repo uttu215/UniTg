@@ -838,7 +838,7 @@ async def _(event):
     await event.edit(reply_text)
 	
 
-@borg.on(admin_cmd("abusehard ?(.*)"))
+@borg.on(admin_cmd("abusehard ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
          return
