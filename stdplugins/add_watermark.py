@@ -12,7 +12,7 @@ from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
-from sample_config import Config
+
 
 
 @borg.on(admin_cmd(pattern="watermark"))
