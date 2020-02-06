@@ -877,7 +877,7 @@ async def _(event):
 @borg.on(admin_cmd("slap ?(.*)"))
 async def who(event):
     """ slaps a user, or get slapped if not a reply. """
-    replied_user = await get_user_from_event(event)
+    replied_user = await get_user(event)
     if replied_user:
         replied_user = replied_user[0]
     else:
