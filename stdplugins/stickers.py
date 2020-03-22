@@ -26,10 +26,10 @@ from telethon.tl.types import (
     InputStickerSetShortName,
     MessageMediaPhoto
 )
-from userbot.utils import admin_cmd
-from userbot import ALIVE_NAME
+from uniborg.utils import admin_cmd
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "No name set yet nibba, check pinned in @XtraTgBot"
+
+DEFAULTUSER = Config.ALIVE_NAME if ALIVE_NAME else "Add ALIVE_NAME in ENV. VARS"
 FILLED_UP_DADDY = "Invalid pack selected."
 
 @borg.on(admin_cmd(pattern="kang ?(.*)"))
