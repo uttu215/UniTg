@@ -3,6 +3,7 @@ aiohttp
 beautifulsoup4
 cfscrape
 cryptg
+coffeehouse >= 2.2.0
 emoji
 googletrans
 google_images_download
