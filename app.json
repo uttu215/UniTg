@@ -42,6 +42,10 @@
       "description": "CHROME Binary PATH",
       "value":"/app/.chromedriver/bin/chromedriver"
     },
+    "DEFAULT_STICKER_PACK": {
+      "description": "Make a new pack from @stickers.",
+      "value": ""
+    },
     "HU_STRING_SESSION": {
       "description": "Get this value by running python3 GenerateStringSession.py locally",
       "value": ""
