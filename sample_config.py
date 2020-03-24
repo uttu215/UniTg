@@ -119,7 +119,7 @@ class Config(object):
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
     
     
-     
+     DEFAULT_STICKER_PACK = os.environ.get("DEFAULT_STICKER_PACK", None)
     
     AUTO_PIC = os.environ.get("AUTO_PIC", None)
     # Google Drive ()
