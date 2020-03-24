@@ -40,6 +40,7 @@ async def _(event):
     await event.edit("sending song")
     await borg.send_file(
                 event.chat_id,
+                loa,
                 force_document=True,
                 allow_cache=False,
                 caption=cmd,
