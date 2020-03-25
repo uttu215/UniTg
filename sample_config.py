@@ -120,6 +120,7 @@ class Config(object):
     
     
     DEFAULT_STICKER_PACK = os.environ.get("DEFAULT_STICKER_PACK", None)
+    DEFAULT_ANIMATED_PACK = os.environ.get("DEFAULT_ANIMATED_PACK", None)
     
     AUTO_PIC = os.environ.get("AUTO_PIC", None)
     # Google Drive ()
