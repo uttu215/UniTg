@@ -85,7 +85,7 @@ async def _(event):
         if DAP:
             packshortname = f"{DAP}"
         else:
-            packshortname = f"{userid}_Animated_Pack_{pack}"
+            packshortname = f"Uni_Borg_{userid}_as"
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
