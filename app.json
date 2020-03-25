@@ -44,12 +44,10 @@
     },
     "DEFAULT_STICKER_PACK": {
       "description": "Make a new pack from @stickers.",
-      "value": ""
       "required": false
     },
     "DEFAULT_ANIMATED_PACK": {
       "description": "Make a new animated pack from @stickers.",
-      "value": ""
       "required": false
     },
     "HU_STRING_SESSION": {
