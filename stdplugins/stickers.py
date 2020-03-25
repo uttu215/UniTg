@@ -70,9 +70,9 @@ async def _(event):
         user.first_name = user.id
     packname = f"{user.first_name}'s Pack {pack}"
     if DSP:
-          packshortname = f"{DSP}"  # format: Uni_Borg_userid
-    else
-          packshortname = f"vol_{pack}_with_{userid}"
+        packshortname = f"{DSP}"  # format: Uni_Borg_userid
+    else:
+        packshortname = f"vol_{pack}_with_{userid}"
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@UniBorg_Sticker.png"
@@ -83,7 +83,7 @@ async def _(event):
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
         packname = f"{user.first_name}'s Animated Pack"
         if DAP:
-              packshortname = f"{DAP}"
+            packshortname = f"{DAP}"
         else:
             packshortname = f"{userid}'s animated Pack-{pack}"
     elif not is_message_image(reply_message):
@@ -146,7 +146,7 @@ async def _(event):
                     prevv = int(pack) - 1
                     packname = f"{user.first_name}'s Kang Pack-{pack}"
                     if DSP:
-                          packshortname = f"{DSP}"
+                        packshortname = f"{DSP}"
                     else:
                         packshortname = f"Vol._{pack}_with_{userid}"
                     if not await stickerset_exists(bot_conv, packshortname):
