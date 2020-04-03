@@ -33,3 +33,4 @@ PyPDF2
 cowpy
 wget
 hurry
+covid
