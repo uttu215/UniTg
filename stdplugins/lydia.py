@@ -1,8 +1,8 @@
 """Lydia AI plugin for @UniBorg
 
-.enacf <as a reply to user's message //Turns AI on For that user.
-.delcf <as a reply to user's message //Turns AI off For that user.
-.lstcf // Outputs List Of Currently added Users in AI Auto-Chat.
+.enlydia <as a reply to user's message //Turns AI on For that user.
+.dislydia <as a reply to user's message //Turns AI off For that user.
+.listlydia // Outputs List Of Currently added Users in AI Auto-Chat.
 
 Description: A module that Act as a chatbot and chat with a User/other Bot.
 This Module Needs CoffeeHouse API to work. so Join https://telegram.dog/IntellivoidDev and send #activateapi and follow instructions.
@@ -57,15 +57,15 @@ async def lydia_disable_enable(event):
             await event.edit(f"Lydia AI turned on for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
         elif input_str == "del":
             logger.info(remove_s(user_id, chat_id))
-            await event.edit(f"Lydia AI turned off for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
+            await event.edit(f"`AI disabled for user.` [user](tg://user?id={user_id}) in chat: `{chat_id}`")
         elif input_str == "lst":
             lsts = get_all_s()
             if len(lsts) > 0:
-                output_str = "Lydia AI enabled users:\n\n"
+                output_str = "`AI enabled for user.`:\n\n"
                 for lydia_ai in lsts:
                     output_str += f"[user](tg://user?id={lydia_ai.user_id}) in chat `{lydia_ai.chat_id}`\n"
             else:
-                output_str = "no Lydia AI enabled users / chats. Start by replying `.enacf` to any user in any chat!"
+                output_str = "no Lydia AI enabled users / chats. Start by replying `.enlydia` to any user in any chat!"
             if len(output_str) > Config.MAX_MESSAGE_SIZE_LIMIT:
                 with io.BytesIO(str.encode(output_str)) as out_file:
                     out_file.name = "lydia_ai.text"
