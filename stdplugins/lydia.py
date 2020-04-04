@@ -45,7 +45,7 @@ async def lydia_disable_enable(event):
         user_id = reply_msg.from_id
         chat_id = event.chat_id
         await event.edit("Processing...")
-        if input_str == "ena":
+        if input_str == "enl":
             # Create a new chat session (Like a conversation)
             session = lydia.create_session()
             logger.info(session)
@@ -55,10 +55,10 @@ async def lydia_disable_enable(event):
             # logger.info("Session Expires: {0}".format(str(session.expires)))
             logger.info(add_s(user_id, chat_id, session.id, session.expires))
             await event.edit(f"Lydia AI turned on for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
-        elif input_str == "del":
+        elif input_str == "dis":
             logger.info(remove_s(user_id, chat_id))
             await event.edit(f"`AI disabled for user.` [user](tg://user?id={user_id}) in chat: `{chat_id}`")
-        elif input_str == "lst":
+        elif input_str == "list":
             lsts = get_all_s()
             if len(lsts) > 0:
                 output_str = "`AI enabled for user.`:\n\n"
