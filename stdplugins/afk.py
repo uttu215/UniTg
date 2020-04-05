@@ -14,7 +14,8 @@ borg.storage.last_afk_message = {}  # pylint:disable=E0602
 borg.storage.recvd_messages = {}  # pylint:disable=E0602
 
 
-@borg.on(admin_cmd("unafk ?((.|\n)*)", outgoing=True))  # pylint:disable=E0602
+@borg.on(admin_cmd("unafk ?((.|\n)*)", outgoing=True))
+await event.edit(f"I'm no longer AFK")
 async def set_not_afk(event):
     current_message = event.message.message
     if Config.COMMAND_HAND_LER + "afk" not in current_message and "yes" in borg.storage.USER_AFK:  # pylint:disable=E0602
@@ -76,11 +77,10 @@ async def _(event):
             borg.storage.afk_time = datetime.datetime.now()  # pylint:disable=E0602
         borg.storage.USER_AFK.update({"yes": reason})  # pylint:disable=E0602
         if reason:
-            await event.edit(f"Set AFK mode to True, and Reason is {reason}")
+            await event.edit(f"I'm goin' AFK, and Reason is {reason}")
         else:
-            await event.edit(f"Set AFK mode to True")
-        await asyncio.sleep(5)
-        await event.delete()
+            await event.edit(f"I'm goin' AFK")
+        
         try:
             await borg.send_message(  # pylint:disable=E0602
                 Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
