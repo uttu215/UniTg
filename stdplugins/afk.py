@@ -15,7 +15,7 @@ borg.storage.recvd_messages = {}  # pylint:disable=E0602
 
 
 @borg.on(admin_cmd("unafk ?((.|\n)*)", outgoing=True))
-await event.edit(f"I'm no longer AFK")
+await event.edit("I'm no longer AFK")
 async def set_not_afk(event):
     current_message = event.message.message
     if Config.COMMAND_HAND_LER + "afk" not in current_message and "yes" in borg.storage.USER_AFK:  # pylint:disable=E0602
