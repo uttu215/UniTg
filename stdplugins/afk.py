@@ -18,7 +18,7 @@ borg.storage.recvd_messages = {}  # pylint:disable=E0602
 
 async def set_not_afk(event):
     current_message = event.message.message
-    await event.edit("I'm no longer AFK")
+    await event.edit("**I'm no longer AFK**")
     if Config.COMMAND_HAND_LER + "afk" not in current_message and "yes" in borg.storage.USER_AFK:  # pylint:disable=E0602
         borg.storage.USER_AFK = {}  # pylint:disable=E0602
         borg.storage.afk_time = None  # pylint:disable=E0602
@@ -78,9 +78,9 @@ async def _(event):
             borg.storage.afk_time = datetime.datetime.now()  # pylint:disable=E0602
         borg.storage.USER_AFK.update({"yes": reason})  # pylint:disable=E0602
         if reason:
-            await event.edit(f"I'm goin' AFK, and Reason is {reason}")
+            await event.edit("**I'm goin' AFK**")
         else:
-            await event.edit(f"I'm goin' AFK")
+            await event.edit("**I'm goin' AFK**")
         
         try:
             await borg.send_message(  # pylint:disable=E0602
