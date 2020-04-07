@@ -117,7 +117,9 @@ class Config(object):
     #Google Chrome Stuff
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
-    
+    #LASTFM
+    LAST_FM_USERNAME = os.environ.get("LAST_FM_USERNAME",None)
+    LAST_FM_API_KEY = os.environ.get("LAST_FM_API_KEY",None)
     
     DEFAULT_STICKER_PACK = os.environ.get("DEFAULT_STICKER_PACK", None)
     DEFAULT_ANIMATED_PACK = os.environ.get("DEFAULT_ANIMATED_PACK", None)
