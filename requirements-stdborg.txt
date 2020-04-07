@@ -34,3 +34,5 @@ cowpy
 wget
 hurry
 covid
+pylast
+ipython
