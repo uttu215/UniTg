@@ -133,13 +133,13 @@ async def on_afk(event):
                     wday = now + datetime.timedelta(days=-days)
                     afk_since = wday.strftime("%A")
             elif hours > 1:
-                afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
+                afk_since = f"`{int(hours)}h{int(minutes)}m`"
             elif minutes > 0:
-                afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
+                afk_since = f"`{int(minutes)}m{int(seconds)}s`"
             else:
-                afk_since = f"`{int(seconds)}s` **ago**"
+                afk_since = f"`{int(seconds)}s`"
         msg = None
-        message_to_reply = f"**I'm afk right now (since {afk_since} ago**.\n**Reason: {reason}**
+        message_to_reply = f"**I'm afk right now (since {afk_since} ago**.\n**Reason: {reason}**"
             
             if reason \
             else f"**I'm afk right now (since {afk_since} ago)**."
