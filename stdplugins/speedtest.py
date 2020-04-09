@@ -46,7 +46,7 @@ async def _(event):
             await event.edit("""**SpeedTest Results**:\n\n
 **Download**: {}
 **Upload**: {}
-**Ping**: {}
+**Ping**: {} milliseconds
 **ISP**: {}
 **ISP Rating**: {}""".format(convert_from_bytes(download_speed), convert_from_bytes(upload_speed), ping_time, i_s_p, i_s_p_rating))
         else:
@@ -74,9 +74,9 @@ def convert_from_bytes(size):
     n = 0
     units = {
         0: "",
-        1: "kilobytes",
-        2: "megabytes",
-        3: "gigabytes",
+        1: "KiB/s",
+        2: "MiB/s",
+        3: "GiB/s",
         4: "terabytes"
     }
     while size > power:
