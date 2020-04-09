@@ -44,11 +44,11 @@ async def _(event):
         speedtest_image = response
         if as_text:
             await event.edit("""**SpeedTest Results**:\n\n
-Download: {}
-Upload: {}
-Ping: {}
-Internet Service Provider: {}
-ISP Rating: {}""".format(convert_from_bytes(download_speed), convert_from_bytes(upload_speed), ping_time, i_s_p, i_s_p_rating))
+**Download**: {}
+**Upload**: {}
+**Ping**: {}
+**ISP**: {}
+**ISP Rating**: {}""".format(convert_from_bytes(download_speed), convert_from_bytes(upload_speed), ping_time, i_s_p, i_s_p_rating))
         else:
             await borg.send_file(
                 event.chat_id,
