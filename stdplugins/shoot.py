@@ -1,4 +1,4 @@
-""" .kill """
+""" .shoot """
 import sys
 from telethon import events, functions, __version__
 from uniborg.util import admin_cmd
@@ -19,7 +19,7 @@ KILLSTR = [
 ]    
 
 
-@borg.on(admin_cmd(pattern="kill$ ?(.*)", allow_sudo=True))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="shoot$ ?(.*)", allow_sudo=True))  # pylint:disable=E0602
 async def killing (killed):
     """ Dont Kill Too much -_-"""
     if not killed.text[0].isalpha() and killed.text[0] not in ("/", "#", "@", "!"):
