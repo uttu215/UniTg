@@ -46,7 +46,7 @@ async def lydia_disable_enable(event):
         input_str = event.pattern_match.group(1)
         reply_msg = await event.get_reply_message()
         user_id = reply_msg.from_id
-        chat_id = event.chat_id
+        chat = await event.get_input_chat()
        
         if Config.LYDIA_DEFAULT == "True":
         
@@ -56,7 +56,7 @@ async def lydia_disable_enable(event):
             # logger.info("Session Available: {0}".format(str(session.available)))
             # logger.info("Session Language: {0}".format(str(session.language)))
             # logger.info("Session Expires: {0}".format(str(session.expires)))
-            logger.info(add_s(user_id, chat_id, session.id, session.expires))
+            logger.info(add_s(chat, session.id, session.expires))
             await event.edit(f"Lydia AI turned on for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
         elif input_str == "del":
             logger.info(remove_s(user_id, chat_id))
