@@ -117,7 +117,7 @@ class Config(object):
     #LASTFM
     LAST_FM_USERNAME = os.environ.get("LAST_FM_USERNAME",None)
     LAST_FM_API_KEY = os.environ.get("LAST_FM_API_KEY",None)
-    
+    LYDIA_DEFAULT = os.environ.get("LYDIA_DEFAULT", None)
     DEFAULT_STICKER_PACK = os.environ.get("DEFAULT_STICKER_PACK", None)
     DEFAULT_ANIMATED_PACK = os.environ.get("DEFAULT_ANIMATED_PACK", None)
     
