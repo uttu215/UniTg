@@ -37,30 +37,27 @@ async def lydia_disable_enable(event):
     if event.fwd_from:
         return
     if Config.LYDIA_API is None:
-        await borg.send_message(Config.PRIVATE_GROUP_BOT_API_ID, "Set LYDIA_API in Env. Vars")
-                 
-                
-            
+        await event.edit("please add required `LYDIA_API` env var")
         return
     if event.reply_to_msg_id is not None:
         input_str = event.pattern_match.group(1)
         reply_msg = await event.get_reply_message()
         user_id = reply_msg.from_id
-        chat = await event.get_input_chat()
-       
-        if Config.LYDIA_DEFAULT == "True":
-        
+        chat_id = event.chat_id
+        await event.edit("Processing...")
+        if input_str == "ena":
+            # Create a new chat session (Like a conversation)
             session = lydia.create_session()
             logger.info(session)
             # logger.info("Session ID: {0}".format(session.id))
             # logger.info("Session Available: {0}".format(str(session.available)))
             # logger.info("Session Language: {0}".format(str(session.language)))
             # logger.info("Session Expires: {0}".format(str(session.expires)))
-            logger.info(add_s(chat, session.id, session.expires))
+            logger.info(add_s(user_id, chat_id, session.id, session.expires))
             await event.edit(f"Lydia AI turned on for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
         elif input_str == "del":
             logger.info(remove_s(user_id, chat_id))
-            await borg.send_message(Config.PRIVATE_GROUP_BOT_API_ID, f"Lydia AI turned off for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
+            await event.edit(f"Lydia AI turned off for [user](tg://user?id={user_id}) in chat: `{chat_id}`")
         elif input_str == "lst":
             lsts = get_all_s()
             if len(lsts) > 0:
@@ -83,9 +80,9 @@ async def lydia_disable_enable(event):
             else:
                 await event.edit(output_str)
         else:
-            await borg.send_message(Config.PRIVATE_GROUP_BOT_API_ID, "Reply To User Message to Add / Delete them from Lydia Auto-Chat.")
+            await event.edit("Reply To User Message to Add / Delete them from Lydia Auto-Chat.")
     else:
-        await borg.send_message(Config.PRIVATE_GROUP_BOT_API_ID, "Reply To A User's Message to Add / Delete them from Lydia Auto-Chat.")
+        await event.edit("Reply To A User's Message to Add / Delete them from Lydia Auto-Chat.")
 
 
 @borg.on(admin_cmd(incoming=True))
