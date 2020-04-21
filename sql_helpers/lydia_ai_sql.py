@@ -4,19 +4,19 @@ from sql_helpers import SESSION, BASE
 
 class LydiaAI(BASE):
     __tablename__ = "lydia_ai"
-    user_id = Column(Numeric, primary_key=True)
+    
     chat_id = Column(Numeric, primary_key=True)
     session_id = Column(UnicodeText)
     session_expires = Column(Numeric)
 
     def __init__(
         self,
-        user_id,
+        
         chat_id,
         session_id,
         session_expires
     ):
-        self.user_id = user_id
+        
         self.chat_id = chat_id
         self.session_id = session_id
         self.session_expires = session_expires
@@ -25,7 +25,7 @@ class LydiaAI(BASE):
 LydiaAI.__table__.create(checkfirst=True)
 
 
-def get_s(user_id, chat_id):
+def get_s(chat_id):
     try:
         return SESSION.query(LydiaAI).get((user_id, chat_id))
     except:
@@ -44,7 +44,7 @@ def get_all_s():
 
 
 def add_s(
-    user_id,
+    
     chat_id,
     session_id,
     session_expires
@@ -55,7 +55,7 @@ def add_s(
         adder.session_expires = session_expires
     else:
         adder = LydiaAI(
-            user_id,
+            
             chat_id,
             session_id,
             session_expires
@@ -65,7 +65,7 @@ def add_s(
 
 
 def remove_s(
-    user_id,
+    
     chat_id
 ):
     note = SESSION.query(LydiaAI).get((user_id, chat_id))
