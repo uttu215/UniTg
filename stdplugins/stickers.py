@@ -59,10 +59,7 @@ async def _(event):
     reply_message = await event.get_reply_message()
     sticker_emoji = "🔥"
     input_str = event.pattern_match.group(1)
-    input = event.pattern_match.group(2)
-    if input:
-        sticker_emoji = input
-
+    
     pack = 1
     userid = event.from_id
     user = borg.me
