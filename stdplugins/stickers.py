@@ -28,8 +28,7 @@ from telethon.tl.types import (
     MessageMediaPhoto
 )
 from uniborg.util import admin_cmd
-DAP = Config.DEFAULT_ANIMATED_PACK
-DSP = Config.DEFAULT_STICKER_PACK
+
 FILLED_UP_DADDY = "Invalid pack selected."
 KANGING_STR = [
     "Using Witchery to kang this sticker...",
@@ -60,8 +59,9 @@ async def _(event):
     reply_message = await event.get_reply_message()
     sticker_emoji = "🔥"
     input_str = event.pattern_match.group(1)
-    if input_str:
-        sticker_emoji = input_str
+    input = event.pattern_match.group(2)
+    if input:
+        sticker_emoji = input
 
     pack = 1
     userid = event.from_id
@@ -69,8 +69,8 @@ async def _(event):
     if not user.first_name:
         user.first_name = user.id
     packname = f"{user.first_name}'s Pack {pack}"
-    if DSP:
-        packshortname = f"{DSP}"  # format: Uni_Borg_userid
+    if input_str:
+        packshortname = input_str  # format: Uni_Borg_userid
     else:
         packshortname = f"vol_{pack}_with_{userid}"
 
@@ -82,8 +82,8 @@ async def _(event):
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
         packname = f"{user.first_name}'s Animated Pack-{pack}"
-        if DAP:
-            packshortname = f"{DAP}"
+        if input_str:
+            packshortname = input_str
         else:
             packshortname = f"Uni_Borg_{userid}_as"
     elif not is_message_image(reply_message):
@@ -145,8 +145,8 @@ async def _(event):
                     pack += 1
                     prevv = int(pack) - 1
                     packname = f"{user.first_name}'s Kang Pack-{pack}"
-                    if DSP:
-                        packshortname = f"{DSP}"
+                    if input_str:
+                        packshortname = input_str
                     else:
                         packshortname = f"Vol._{pack}_with_{userid}"
                     if not await stickerset_exists(bot_conv, packshortname):
