@@ -210,3 +210,14 @@ async def download_video(v_url):
         os.remove(f"{ytdl_data['id']}.mp4")
         await v_url.delete()
         
+@borg.on(admin_cmd(pattern="yt (.*)"))
+async def yt_search(video_q):
+    """ For .yt command, do a YouTube search from Telegram. """
+    query = video_q.pattern_match.group(1)
+    if not query:
+         await video_q.edit("`Enter a search query.`")
+    results = json.loads(YoutubeSearch(str(args), max_results=8).to_json())
+    text = ""
+    for i in results["videos"]:
+           text += f"<i>◍ {i['title']}</i>\nhttps://www.youtube.com{i['link']}\n\n"
+    await video_q.edit.edit(text)
