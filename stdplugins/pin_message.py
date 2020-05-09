@@ -1,5 +1,5 @@
 """Pins the replied message
-Syntax: .cpin [LOUD]"""
+Syntax: .pin [LOUD]"""
 from telethon import events
 from telethon.tl import functions, types
 from uniborg.util import admin_cmd
