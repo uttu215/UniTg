@@ -1,5 +1,6 @@
 """
 Audio and video downloader using Youtube-dl
+.yt To Make a YouTube Search.
 .yta To Download in mp3 format
 .ytv To Download in mp4 format
 """
