@@ -10,6 +10,7 @@ import time
 import math
 import asyncio
 from youtube_dl import YoutubeDL
+from youtube_search import YoutubeSearch
 from youtube_dl.utils import (DownloadError, ContentTooShortError,
                               ExtractorError, GeoRestrictedError,
                               MaxDownloadsReached, PostProcessingError,
