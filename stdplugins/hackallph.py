@@ -13,7 +13,7 @@ import asyncio
 
 from uniborg.util import admin_cmd
 
-
+DF = Config.ALIVE_NAME
 
 @borg.on(admin_cmd(pattern=r"(.*)"))
 
@@ -57,7 +57,7 @@ async def _(event):
             "`Adding Modules... 84%\n█████████████████████▒▒▒▒ `",
             "`Adding Finishing Touches... 96%\n████████████████████████▒`",
             "`HACKED 100%\n█████████████████████████ `",
-            "`Targeted PH: All Accounts Hacked. ×_× Hacked Successfully...`\n__Targeted account is under Boss' control now__\n\n**Pay 50$ To** @CyberJalagam **Or Get Ready To See Your E-Mail and YouTube Channel Spamming Everywhere.**" 
+            f"`Targeted PH: All Accounts Hacked. ×_× Hacked Successfully...`\n__Targeted account is under Boss' control now__\n\n**Pay 50$ To** {DF} **Or Get Ready To See Your E-Mail and YouTube Channel Spamming Everywhere.**" 
        
         
         
