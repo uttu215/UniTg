@@ -97,6 +97,6 @@ async def install(event):
     o = stdout.decode()
     _o = o.split("\n")
     o = "\n".join(_o)
-    OUTPUT = f"**List of Plugins:**\n{o}\n\n**TIP:** __If you want to know the commands for a plugin, do:-__ \n `.syntax <plugin name>` **without the < > brackets.**\nExample: `.syntax ytdl`.""
+    OUTPUT = f"**List of Plugins:**\n{o}\n\n**TIP:** __If you want to know the commands for a plugin, do:-__ \n `.syntax <plugin name>` **without the < > brackets.**\nExample: `.syntax ytdl`."
     await event.edit(OUTPUT)
 
