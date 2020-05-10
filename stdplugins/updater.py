@@ -55,7 +55,8 @@ async def upstream(ups):
     try:
         txt = "`Oops.. Updater cannot continue due to "
         txt += "some problems occured`\n\n**LOGTRACE:**\n"
-        repo = Repo()
+        path = os.path.dirname(os.path.abspath(__file__))
+        repo = Repo('{}/..'.format(path))
     except NoSuchPathError as error:
         await ups.edit(f'{txt}\n`directory {error} is not found`')
         repo.__del__()
