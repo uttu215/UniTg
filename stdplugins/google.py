@@ -6,7 +6,9 @@ Available Commands:
 
 import asyncio
 import os
-from google import googleimagesdownload
+import shutil
+from re import findall
+from google_img import googleimagesdownload
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -41,11 +43,6 @@ async def _(event):
     await event.edit("searched Google for {} in {} seconds. \n{}".format(input_str, ms, output_str), link_preview=False)
     await asyncio.sleep(5)
     await event.edit("Google: {}\n{}".format(input_str, output_str), link_preview=False)
-
-import os
-import shutil
-from re import findall
-from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="gi ?(.*)"))
