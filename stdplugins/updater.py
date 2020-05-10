@@ -12,7 +12,7 @@ from os import remove, execle, path, makedirs, getenv, environ
 from shutil import rmtree
 import asyncio
 import sys
-
+import git
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
@@ -56,7 +56,7 @@ async def upstream(ups):
         txt = "`Oops.. Updater cannot continue due to "
         txt += "some problems occured`\n\n**LOGTRACE:**\n"
         
-        repo = Repo(path, search_parent_directories=True)
+        repo = Repo(search_parent_directories=True)
     except NoSuchPathError as error:
         await ups.edit(f'{txt}\n`directory {error} is not found`')
         repo.__del__()
