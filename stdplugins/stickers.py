@@ -43,7 +43,7 @@ KANGING_STR = [
 ]
 
 
-@borg.on(admin_cmd(pattern="kan ?(.*)"))
+@borg.on(admin_cmd(pattern="kang ?(.*)"))
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
     kang_meme = random.choice(KANGING_STR)
