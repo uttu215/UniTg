@@ -37,3 +37,4 @@ covid
 pylast
 ipython
 youtube_search
+gitpython
