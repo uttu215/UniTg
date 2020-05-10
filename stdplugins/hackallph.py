@@ -1,8 +1,8 @@
 #Emoji
 
-#Available Commands:
+"""Available Commands:
 
-#.hackallph
+.hackallph"""
 
 #ANIMATION WRITTED BY @CyberJalagam
 #OpenSource
