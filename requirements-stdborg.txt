@@ -38,4 +38,5 @@ pylast
 ipython
 youtube_search
 gitpython
+pyfiglet
 heroku3
