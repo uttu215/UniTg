@@ -12,6 +12,7 @@
 
 import sys
 import subprocess
+import asyncio
 import time
 from telethon import events, functions, __version__
 from uniborg.util import admin_cmd
