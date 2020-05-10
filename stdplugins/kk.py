@@ -21,6 +21,8 @@ from telethon.tl.types import DocumentAttributeSticker
 PACK_FULL = "Whoa! That's probably enough stickers for one pack, give it a break. \
 A pack can't have more than 120 stickers at the moment."
 
+DSP = Config.DEFAULT_STICKER_PACK
+
 KANGING_STR = [
     "Using Witchery to kang this sticker...",
     "Plagiarising hehe...",
@@ -104,9 +106,11 @@ async def kang(args):
                 # User sent just custom emote, wants to push to default
                 # pack
                 emoji = splat[1]
-
-        packname = f"a{user.id}_by_{user.username}_{pack}"
-        packnick = f"@{user.username}'s kang pack Vol.{pack}"
+        if DSP:
+            packname = DSP
+        else:
+          packname = f"a{user.id}_by_{user.username}_{pack}"
+          packnick = f"@{user.username}'s kang pack Vol.{pack}"
         cmd = '/newpack'
         file = io.BytesIO()
 
