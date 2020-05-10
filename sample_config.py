@@ -73,11 +73,13 @@ class Config(object):
     # foloowing plugins won't work on Heroku,
     # because of their ephemeral file system
     NO_LOAD = []
-        
+       
     
     # Get your own API key from https://www.remove.bg/ or
     # feel free to use http://telegram.dog/Remove_BGBot
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY",None)
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     # Set to True if you want to block users that are spamming your PMs.
     SLAP_USERNAME = os.environ.get("SLAP_USERNAME", None)
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
