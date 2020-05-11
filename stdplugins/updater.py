@@ -56,7 +56,8 @@ async def upstream(ups):
         txt = "`Oops.. Updater cannot continue due to "
         txt += "some problems occured`\n\n**LOGTRACE:**\n"
         
-        repo = git.Repo(search_parent_directories=True)
+        repo = Repo(self.rorepo.working_tree_dir)
+        assert not repo.bare
     except NoSuchPathError as error:
         await ups.edit(f'{txt}\n`directory {error} is not found`')
         repo.__del__()
