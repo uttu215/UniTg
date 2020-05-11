@@ -249,7 +249,7 @@ async def kang(args):
                 # Ensure user doesn't get spamming notifications
                 await borg.send_read_acknowledge(conv.chat_id)
 
-        await args.edit(f"`Sticker added to [pack](t.me/addstickers/{packname})", parse_mode='md')
+        await args.edit(f"`Sticker added to [pack](t.me/addstickers/{packname})`", parse_mode='md')
 
 
 async def resize_photo(photo):
