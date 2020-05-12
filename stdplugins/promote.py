@@ -8,43 +8,55 @@ from uniborg.util import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="promote ?(.*)"))
-async def promote(promt):
-    """ For .promote command, promotes the replied/tagged person """
-    # Get targeted chat
-    chat = await promt.get_chat()
-    # Grab admin status or creator in a chat
-    admin = chat.admin_rights
-    creator = chat.creator
-
-    # If not admin and not creator, also return
-    if not admin and not creator:
-        await promt.edit("`I am not an admin here`")
+async def _(event):
+    if event.fwd_from:
         return
-
-    new_rights = ChatAdminRights(add_admins=False,
-                                 invite_users=True,
-                                 change_info=False,
-                                 ban_users=True,
-                                 delete_messages=True,
-                                 pin_messages=True)
-
-    await promt.edit("`Promoting...`")
-    user, rank = await get_user_from_event(promt)
-    if not rank:
-        rank = "admeme"  # Just in case.
-    if user:
-        pass
-    else:
-        return
-
-    # Try to promote if current user is admin or creator
+    start = datetime.now()
+    to_promote_id = None
+    rights = ChatAdminRights(
+        change_info=True,
+        post_messages=True,
+        edit_messages=True,
+        delete_messages=True,
+        ban_users=True,
+        invite_users=True,
+        pin_messages=True,
+        add_admins=True,
+    )
+    input_str = event.pattern_match.group(1)
+    reply_msg_id = event.message.id
+    if reply_msg_id:
+        r_mesg = await event.get_reply_message()
+        to_promote_id = r_mesg.sender_id
+    elif input_str:
+        to_promote_id = input_str
     try:
-        await promt.client(
-            EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await promt.edit("`Promoted Successfully!`")
+        await borg(EditAdminRequest(event.chat_id, to_promote_id, rights, "Admin"))
+    except (Exception) as exc:
+        await event.edit(str(exc))
+    else:
+        await event.edit("Successfully Promoted")
 
-    # If Telethon spit BadRequestError, assume
-    # we don't have Promote permission
-    except BadRequestError:
-        await promt.edit("`I lack permission to add new admin`")
+
+@borg.on(admin_cmd(pattern="prankpromote ?(.*)"))
+async def _(event):
+    if event.fwd_from:
         return
+    start = datetime.now()
+    to_promote_id = None
+    rights = ChatAdminRights(
+        post_messages=True
+    )
+    input_str = event.pattern_match.group(1)
+    reply_msg_id = event.message.id
+    if reply_msg_id:
+        r_mesg = await event.get_reply_message()
+        to_promote_id = r_mesg.sender_id
+    elif input_str:
+        to_promote_id = input_str
+    try:
+        await borg(EditAdminRequest(event.chat_id, to_promote_id, rights, "Admin"))
+    except (Exception) as exc:
+        await event.edit(str(exc))
+    else:
+        await event.edit("Successfully Promoted")
