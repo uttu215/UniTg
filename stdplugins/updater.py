@@ -22,6 +22,7 @@ requirements_path = path.join(
 
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME
+HEROKU_MEMEZ = False
 UPSTREAM_REPO_URL = "https://github.com/shreyansh8184/UniTg"
 async def gen_chlog(repo, diff):
     ch_log = ''
