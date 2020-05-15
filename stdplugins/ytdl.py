@@ -197,6 +197,7 @@ async def download_video(v_url):
                          f"{ytdl_data['title']}.mp3")))
         os.remove(f"{ytdl_data['id']}.mp3")
         await v_url.delete()
+        os.system(" youtube-dl --rm-cache-dir")
     elif video:
         await v_url.edit(f"`Preparing to upload video:`\
         \n**{ytdl_data['title']}**\
@@ -212,7 +213,7 @@ async def download_video(v_url):
                          f"{ytdl_data['title']}.mp4")))
         os.remove(f"{ytdl_data['id']}.mp4")
         await v_url.delete()
-        
+        os.system(" youtube-dl --rm-cache-dir")
 @borg.on(admin_cmd(pattern="yt (.*)"))
 async def yt_search(video_q):
     """ For .yt command, do a YouTube search from Telegram. """
