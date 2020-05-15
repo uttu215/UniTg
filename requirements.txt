@@ -1,4 +1,4 @@
-telethon
+
 lxml
 selenium
 aria2p
