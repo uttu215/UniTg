@@ -119,6 +119,7 @@ async def kang(args):
             file.name = "sticker.png"
             image.save(file, "PNG")
         else:
+            packnick = ""
             packname += "_anim"
             packnick += " (Animated)"
             cmd = '/newanimated'
