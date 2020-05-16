@@ -121,7 +121,7 @@ async def kang(args):
         else:
             packnick = ""
             packname += "_anim"
-            packnick += " (Animated)"
+            packnick += f"@{user.username}'s kang pack Vol.{pack} (Animated)"
             cmd = '/newanimated'
 
         response = urllib.request.urlopen(
