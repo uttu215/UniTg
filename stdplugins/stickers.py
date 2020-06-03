@@ -3,7 +3,9 @@
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" Userborg module for kanging stickers or making new ones. Thanks @rupansh"""
+""" Userborg module for kanging stickers or making new ones.
+.kang <emoji(optional)>
+.kang <packname> [option Emoji]"""
 
 import io
 import math
@@ -47,6 +49,8 @@ KANGING_STR = [
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
     kang_meme = random.choice(KANGING_STR)
+    input_type = event.pattern_match.group(1)
+    input_str = event.pattern_match.group(2)
     user = await borg.get_me()
     if not user.username:
         user.username = user.first_name
@@ -76,7 +80,9 @@ async def kang(args):
 
             attributes = message.media.document.attributes
             for attribute in attributes:
-                if isinstance(attribute, DocumentAttributeSticker):
+                if input_str:
+                    emoji = input_str
+                elif isinstance(attribute, DocumentAttributeSticker):
                     emoji = attribute.alt
 
             emojibypass = True
@@ -106,8 +112,8 @@ async def kang(args):
                 # User sent just custom emote, wants to push to default
                 # pack
                 emoji = splat[1]
-        if DSP:
-            packname = DSP
+        if input_type:
+            packname = input_type
         else:
           packname = f"a{user.id}_by_{user.username}_{pack}"
           packnick = f"@{user.username}'s kang pack Vol.{pack}"
