@@ -49,8 +49,8 @@ KANGING_STR = [
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
     kang_meme = random.choice(KANGING_STR)
-    input_type = event.pattern_match.group(1)
-    input_str = event.pattern_match.group(2)
+    input_type = args.pattern_match.group(1)
+    input_str = args.pattern_match.group(2)
     user = await borg.get_me()
     if not user.username:
         user.username = user.first_name
