@@ -70,7 +70,7 @@ async def img_sampler(event):
     # creating list of arguments
     arguments = {
         "keywords": query,
-        "limit": lim,
+        "limit": Config.GOOGLE_SEARCH_COUNT_LIMIT,
         "format": "jpg",
         "no_directory": "no_directory"
     }
