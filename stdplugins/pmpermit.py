@@ -30,7 +30,7 @@ async def monito_p_m_s(event):
         # userbot's should not reply to other userbot's
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
         return False
-    if Config.NO_P_M_SPAM and not sender.bot:
+    if Config.NO_P_M_SPAM:
         chat = await event.get_chat()
         if not is_approved(chat.id) and chat.id != borg.uid:
             logger.info(chat.stringify())
