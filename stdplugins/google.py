@@ -12,7 +12,7 @@ from google_img import googleimagesdownload
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
-from google_images_download import google_images_download
+from google_img_download import google_images_download
 from uniborg.util import admin_cmd
 
 
