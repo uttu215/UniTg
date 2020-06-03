@@ -1,7 +1,7 @@
 """Personal Message Spammer
 Available Commands:
-.allow
-.deny
+.approve
+.block
 .list approved pms"""
 import asyncio
 import json
@@ -17,9 +17,10 @@ borg.storage.PREV_REPLY_MESSAGE = {}
 
 BAALAJI_TG_USER_BOT = "My Master hasn't approved you to PM."
 TG_COMPANION_USER_BOT = "Please wait for his response and don't spam his PM."
-UNIBORG_USER_BOT_WARN_ZERO = "You were spamming my master's PM.You have been blocked"
-UNIBORG_USER_BOT_NO_WARN = "Hi!This is a bot. My master don't accept PM from strangers,so contact him in group and don't spam his PM else you will be blocked."
-X = Config.NO_P_M_SPAM
+UNIBORG_USER_BOT_WARN_ZERO = "I am currently offline. Please do not SPAM me."
+UNIBORG_USER_BOT_NO_WARN = "Hi! I will answer to your message soon. Please wait for my response and don't spam my PM. Thanks"
+
+
 @borg.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 async def monito_p_m_s(event):
     sender = await event.get_sender()
@@ -30,7 +31,7 @@ async def monito_p_m_s(event):
         # userbot's should not reply to other userbot's
         # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
         return False
-    if X == "True":
+    if Config.NO_P_M_SPAM and not sender.bot:
         chat = await event.get_chat()
         if not is_approved(chat.id) and chat.id != borg.uid:
             logger.info(chat.stringify())
@@ -52,13 +53,13 @@ async def monito_p_m_s(event):
             borg.storage.PREV_REPLY_MESSAGE[chat.id] = r
 
 
-@borg.on(admin_cmd("allow ?(.*)"))
+@borg.on(admin_cmd("approvepm ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
     reason = event.pattern_match.group(1)
     chat = await event.get_chat()
-    if X == "True":
+    if Config.NO_P_M_SPAM:
         if event.is_private:
             if not is_approved(chat.id):
                 if chat.id in borg.storage.PM_WARNS:
@@ -72,13 +73,13 @@ async def approve_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd("deny ?(.*)"))
+@borg.on(admin_cmd("blockpm ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
     reason = event.pattern_match.group(1)
     chat = await event.get_chat()
-    if X == "True":
+    if Config.NO_P_M_SPAM:
         if event.is_private:
             if is_approved(chat.id):
                 disapprove(chat.id)
