@@ -17,7 +17,7 @@ class Config(object):
     # websites, this might prevent the un-authorized use of the
     # confidential session files
     HU_STRING_SESSION = os.environ.get("HU_STRING_SESSION", None)
-    NO_P_M_SPAM = os.environ.get("NO_P_M_SPAM", None)
+   
     # Get your own APPID from https://api.openweathermap.org/data/2.5/weather
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
     # Get your own ACCESS_KEY from http://api.screenshotlayer.com/api/capture
