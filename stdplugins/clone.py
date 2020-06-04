@@ -18,6 +18,7 @@ from telethon.tl import functions
 async def _(event):
     if event.fwd_from:
         return
+    await event.delete()
     reply_message = await event.get_reply_message()
     replied_user, error_i_a = await get_full_user(event)
     if replied_user is None:
@@ -65,7 +66,7 @@ async def _(event):
     #  "Hey ? Whats Up !",
     #  reply_to=message_id_to_reply,
     #  )
-    await event.delete()
+    
     
 async def get_full_user(event):
     if event.reply_to_msg_id:
