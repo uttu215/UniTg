@@ -66,12 +66,7 @@ async def _(event):
     #  reply_to=message_id_to_reply,
     #  )
     await event.delete()
-    await borg.send_message(
-      event.chat_id,
-      "**Bro @r4v4n4 said me that my dad fcuked your mom and you were the result.**",
-      reply_to=reply_message
-      )
-
+    
 async def get_full_user(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
