@@ -4,8 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 """ Userborg module for kanging stickers or making new ones.
-.kang <emoji(optional)>
-.kang <packname> [option Emoji]"""
+.kang <emoji(optional)>"""
 
 import io
 import math
@@ -49,7 +48,7 @@ KANGING_STR = [
 async def kang(args):
     """ For .kang command, kangs stickers or creates new ones. """
     kang_meme = random.choice(KANGING_STR)
-    input_type = args.pattern_match.group(1)
+    
     
     user = await borg.get_me()
     if not user.username:
@@ -111,8 +110,8 @@ async def kang(args):
                 # User sent just custom emote, wants to push to default
                 # pack
                 emoji = splat[1]
-        if input_type:
-            packname = input_type
+        if DSP:
+            packname = DSP
         else:
           packname = f"a{user.id}_by_{user.username}_{pack}"
           packnick = f"@{user.username}'s kang pack Vol.{pack}"
