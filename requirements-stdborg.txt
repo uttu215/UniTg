@@ -1,4 +1,4 @@
-telethon==1.13.0
+telethon==1.14.0
 aiofiles
 aiohttp
 beautifulsoup4
@@ -41,3 +41,4 @@ youtube_search
 gitpython
 pyfiglet
 heroku3
+fonttools
