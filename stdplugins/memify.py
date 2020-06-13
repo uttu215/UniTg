@@ -1,8 +1,8 @@
 # Ported from @TheUserge to @UniBorg by @okay_reatrd
 # if you change these, you gay
 
-"""Reply to an image/sticker/gif with .mmf` 'text on top' ; 'text on bottom
-"""
+"""Reply to an image/sticker/gif with .mmf` 'text on top' ; 'text on bottom.
+Ported by @okay_retard"""
 
 import os
 import time
