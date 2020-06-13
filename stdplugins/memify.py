@@ -1,148 +1,148 @@
-# base by: @r4v4n4
-# created by: @A_Dark_Princ3
+# Ported from @TheUserge to @UniBorg by @okay_reatrd
 # if you change these, you gay
 
 """Reply to an image/sticker/gif with .mmf` 'text on top' ; 'text on bottom
 """
 
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon import events
-from io import BytesIO
-from PIL import Image
-import asyncio
-import time
-from datetime import datetime
-from hachoir.metadata import extractMetadata
-from hachoir.parser import createParser
-from pySmartDL import SmartDL
-from telethon.tl.types import DocumentAttributeVideo
-from uniborg.util import progress, humanbytes, time_formatter, admin_cmd
-import datetime
-from collections import defaultdict
-import math
 import os
-import requests
-import zipfile
-from telethon.errors.rpcerrorlist import StickersetInvalidError
-from telethon.errors import MessageNotModifiedError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from telethon.tl.functions.messages import GetStickerSetRequest
-from telethon.tl.types import (
-DocumentAttributeFilename,
-DocumentAttributeSticker,
-InputMediaUploadedDocument,
-InputPeerNotifySettings,
-InputStickerSetID,
-InputStickerSetShortName,
-MessageMediaPhoto
-)
+import time
+import shlex
+import logging
+import textwrap
+from typing import Tuple, Dict, List, Union, Optional
+from PIL import Image, ImageFont, ImageDraw
+import asyncio
+from uniborg.util import admin_cmd, humanbytes, progress, time_formatter
 
+_LOG = logging.getLogger(__name__)
 
-thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
-
-
-@borg.on(admin_cmd("mmf ?(.*)"))
+@borg.on(admin_cmd(pattern="mmf ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
-    if not event.reply_to_msg_id:
-       await event.edit("`Syntax: reply to an image with .mms` 'text on top' ; 'text on bottom' ")
-       return
-    reply_message = await event.get_reply_message() 
-    if not reply_message.media:
-       await event.edit("```reply to a image/sticker/gif```")
-       return
-    chat = "@MemeAutobot"
-    sender = reply_message.sender
-    file_ext_ns_ion = "@memetime.png"
-    file = await borg.download_file(reply_message.media)
-    uploaded_gif = None
-    if reply_message.sender.bot:
-       await event.edit("```Reply to actual users message.```")
-       return
-    else:
-     await event.edit("```Transfiguration Time! Mwahaha Memifying this image! (」ﾟﾛﾟ)｣ ```")
-     await asyncio.sleep(5)
+        return
+    input_str = event.pattern_match.group(1)
+    replied = event.reply_to_msg_id
+    if not replied:
+        await event.edit("LMAO no one's gonna help you, if u use .help now then u **Gey**")
+        await borg.send_file(event.chat_id, "CAADAQADhAAD3gkwRviGxMVn5813FgQ")
+            
+        return
     
-    async with borg.conversation("@MemeAutobot") as bot_conv:
-          try:
-            memeVar = event.pattern_match.group(1)
-            await silently_send_message(bot_conv, "/start")
-            await asyncio.sleep(1)
-            await silently_send_message(bot_conv, memeVar)
-            await borg.send_file(chat, reply_message.media)
-            response = await bot_conv.get_response()
-          except YouBlockedUserError: 
-              await event.reply("```Please unblock @MemeAutobot and try again```")
-              return
-          if response.text.startswith("Forward"):
-              await event.edit("```can you kindly disable your forward privacy settings for good, Nibba?```")
-          if "Okay..." in response.text:
-            await event.edit("```🛑 🤨 NANI?! This is not an image! This will take sum tym to convert to image... UwU 🧐 🛑```")
-            thumb = None
-            if os.path.exists(thumb_image_path):
-                thumb = thumb_image_path
-            input_str = event.pattern_match.group(1)
-            if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-                os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
-            if event.reply_to_msg_id:
-                file_name = "meme.png"
-                reply_message = await event.get_reply_message()
-                to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
-                downloaded_file_name = os.path.join(to_download_directory, file_name)
-                downloaded_file_name = await borg.download_media(
-                    reply_message,
-                    downloaded_file_name,
-                    )
-                if os.path.exists(downloaded_file_name):
-                    await borg.send_file(
-                        chat,
-                        downloaded_file_name,
-                        force_document=False,
-                        supports_streaming=False,
-                        allow_cache=False,
-                        thumb=thumb,
-                        )
-                    os.remove(downloaded_file_name)
-                else:
-                    await event.edit("File Not Found {}".format(input_str))
-            response = await bot_conv.get_response()
-            the_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
-            files_name = "memes.webp"
-            download_file_name = os.path.join(the_download_directory, files_name)
-            await borg.download_media(
-                response.media,
-                download_file_name,
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    await event.edit("He he, let me use my skills")
+    c_time = time.time()
+    reply_message = await event.get_reply_message()
+    dls = await borg.download_media(
+                reply_message,
+                Config.TMP_DOWNLOAD_DIRECTORY,
+                progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
+                    progress(d, t, event, c_time, "trying to download")
                 )
-            requires_file_name = Config.TMP_DOWNLOAD_DIRECTORY + "memes.webp"
-            await borg.send_file(  # pylint:disable=E0602
-                event.chat_id,
-                requires_file_name,
-                supports_streaming=False,
-                caption="Userbot: Pepe iz Lobe (PepeBot)",
-                # Courtesy: @A_Dark_Princ3
             )
-            await event.delete()
-            await borg.send_message(event.chat_id, "``")
-          elif not is_message_image(reply_message):
-            await event.edit("Invalid message type. Plz choose right message type u NIBBA.")
+    dls_loc = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, os.path.basename(dls))
+    if dls.endswith(".tgs"):
+        await event.edit("OMG, an Animated sticker ⊙_⊙, lemme do my bleck megik...")
+        png_file = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "meme.png")
+        cmd = f"lottie_convert.py --frame 0 -if lottie -of png {dls_loc} {png_file}"
+        stdout, stderr = (await runcmd(cmd))[:2]
+        os.remove(dls_loc)
+        if not os.path.lexists(png_file):
+            await event.edit("This sticker is Gey, i won't memify it ≧ω≦")
+            raise Exception(stdout + stderr)
+        dls_loc = png_file
+    if dls.endswith(".mp4"):
+        await event.edit("Look it's GF. Oh, no it's just a Gif ")
+        jpg_file = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "meme.jpg")
+        await take_screen_shot(dls_loc, 0, jpg_file)
+        os.remove(dls_loc)
+        if not os.path.lexists(jpg_file):
+            await event.edit("This Gif is Gey (｡ì _ í｡), won't memify it.")
             return
-          else: 
-               await borg.send_file(event.chat_id, response.media)
+        dls_loc = jpg_file
+    await event.edit("Decoration Time ≧∇≦, I'm an Artist")
+    webp_file = await draw_meme_text(dls_loc, input_str)
+    await borg.send_file(event.chat_id, webp_file, reply_to=event.reply_to_msg_id)
+                              
+    await event.delete()
+    os.remove(webp_file)
 
-def is_message_image(message):
-    if message.media:
-        if isinstance(message.media, MessageMediaPhoto):
-            return True
-        if message.media.document:
-            if message.media.document.mime_type.split("/")[0] == "image":
-                return True
-        return False
-    return False
+
+async def draw_meme_text(image_path, text):
+    img = Image.open(image_path)
+    os.remove(image_path)
+    i_width, i_height = img.size
+    m_font = ImageFont.truetype("uniborg/font.ttf", int((70 / 640)*i_width))
+    if ";" in text:
+        upper_text, lower_text = text.split(";")
+    else:
+        upper_text = text
+        lower_text = ''
+    draw = ImageDraw.Draw(img)
+    current_h, pad = 10, 5
+    if upper_text:
+        for u_text in textwrap.wrap(upper_text, width=15):
+            u_width, u_height = draw.textsize(u_text, font=m_font)
+
+            draw.text(xy=(((i_width - u_width) / 2) - 1, int((current_h / 640)*i_width)),
+                      text=u_text, font=m_font, fill=(0, 0, 0))
+            draw.text(xy=(((i_width - u_width) / 2) + 1, int((current_h / 640)*i_width)),
+                      text=u_text, font=m_font, fill=(0, 0, 0))
+            draw.text(xy=((i_width - u_width) / 2, int(((current_h / 640)*i_width)) - 1),
+                      text=u_text, font=m_font, fill=(0, 0, 0))
+            draw.text(xy=(((i_width - u_width) / 2), int(((current_h / 640)*i_width)) + 1),
+                      text=u_text, font=m_font, fill=(0, 0, 0))
+
+            draw.text(xy=((i_width - u_width) / 2, int((current_h / 640)*i_width)),
+                      text=u_text, font=m_font, fill=(255, 255, 255))
+            current_h += u_height + pad
+    if lower_text:
+        for l_text in textwrap.wrap(lower_text, width=15):
+            u_width, u_height = draw.textsize(l_text, font=m_font)
+
+            draw.text(
+                xy=(((i_width - u_width) / 2) - 1, i_height - u_height - int((20 / 640)*i_width)),
+                text=l_text, font=m_font, fill=(0, 0, 0))
+            draw.text(
+                xy=(((i_width - u_width) / 2) + 1, i_height - u_height - int((20 / 640)*i_width)),
+                text=l_text, font=m_font, fill=(0, 0, 0))
+            draw.text(
+                xy=((i_width - u_width) / 2, (i_height - u_height - int((20 / 640)*i_width)) - 1),
+                text=l_text, font=m_font, fill=(0, 0, 0))
+            draw.text(
+                xy=((i_width - u_width) / 2, (i_height - u_height - int((20 / 640)*i_width)) + 1),
+                text=l_text, font=m_font, fill=(0, 0, 0))
+
+            draw.text(
+                xy=((i_width - u_width) / 2, i_height - u_height - int((20 / 640)*i_width)),
+                text=l_text, font=m_font, fill=(255, 255, 255))
+            current_h += u_height + pad
+
+    image_name = "memify.webp"
+    webp_file = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, image_name)
+    img.save(webp_file, "WebP")
+    return webp_file
     
-async def silently_send_message(conv, text):
-    await conv.send_message(text)
-    response = await conv.get_response()
-    await conv.mark_read(message=response)
-    return response
-    
+async def runcmd(cmd: str) -> Tuple[str, str, int, int]:
+    """run command in terminal"""
+    args = shlex.split(cmd)
+    process = await asyncio.create_subprocess_exec(*args,
+                                                   stdout=asyncio.subprocess.PIPE,
+                                                   stderr=asyncio.subprocess.PIPE)
+    stdout, stderr = await process.communicate()
+    return (stdout.decode('utf-8', 'replace').strip(),
+            stderr.decode('utf-8', 'replace').strip(),
+            process.returncode,
+            process.pid)
+
+
+async def take_screen_shot(video_file: str, duration: int, path: str = '') -> Optional[str]:
+    """take a screenshot"""
+    _LOG.info('[[[Extracting a frame from %s ||| Video duration => %s]]]', video_file, duration)
+    ttl = duration // 2
+    thumb_image_path = path or os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, f"{basename(video_file)}.jpg")
+    command = f"ffmpeg -ss {ttl} -i '{video_file}' -vframes 1 '{thumb_image_path}'"
+    err = (await runcmd(command))[1]
+    if err:
+        _LOG.error(err)
+    return thumb_image_path if os.path.exists(thumb_image_path) else None
