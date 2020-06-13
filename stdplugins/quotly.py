@@ -1,7 +1,8 @@
 # All new quote module.
 """Syntax: .quote as a reply to a message to convert it into a sticker.
-Source: https://raw.githubusercontent.com/erenmetesar/NiceGrill/master/nicegrill/modules/quote.py
 Ported by @okay_retard"""
+# Source: https://raw.githubusercontent.com/erenmetesar/NiceGrill/master/nicegrill/modules/quote.py
+
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 from telethon.tl import types, functions
