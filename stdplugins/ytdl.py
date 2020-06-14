@@ -3,6 +3,7 @@ Audio and video downloader using Youtube-dl
 .yt To Make a YouTube Search.
 .yta To Download in mp3 format
 .ytv To Download in mp4 format
+.song To get desired song right in the chat.
 """
 
 import os
@@ -196,6 +197,7 @@ async def download_video(v_url):
                 progress(d, t, v_url, c_time, "Uploading..",
                          f"{ytdl_data['title']}.mp3")))
         os.remove(f"{ytdl_data['id']}.mp3")
+        os.remove(f"{ytdl_data['id']}.jpg")
         await v_url.delete()
         os.system(" youtube-dl --rm-cache-dir")
     elif video:
@@ -214,6 +216,7 @@ async def download_video(v_url):
         os.remove(f"{ytdl_data['id']}.mp4")
         await v_url.delete()
         os.system(" youtube-dl --rm-cache-dir")
+
 @borg.on(admin_cmd(pattern="yt (.*)"))
 async def yt_search(video_q):
     """ For .yt command, do a YouTube search from Telegram. """
@@ -225,3 +228,63 @@ async def yt_search(video_q):
     for i in results["videos"]:
            text += f"**◍ {i['title']}**\nhttps://www.youtube.com{i['link']}\n\n"
     await video_q.edit(text)
+
+@borg.on(admin_cmd(pattern="song (.*)"))
+async def _(event):
+    
+    query = event.pattern_match.group(1)
+    if not query:
+         await event.edit("`Enter a search query.`")
+    results = json.loads(YoutubeSearch(str(query), max_results=1).to_json())
+    text = ""
+    for i in results ["videos"]:
+       text += f"https://www.youtube.com{i['link']}"
+    c_time = time.time()
+    opts = {
+            'format':
+            'bestaudio',
+            'addmetadata':
+            True,
+            'key':
+            'FFmpegMetadata',
+            'writethumbnail':
+            True,
+            'prefer_ffmpeg':
+            True,
+            'geo_bypass':
+            True,
+            'nocheckcertificate':
+            True,
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '320',
+            }],
+            'outtmpl':
+            '%(id)s.mp3',
+            'quiet':
+            True,
+            'logtostderr':
+            False
+        }
+    try:
+           with YoutubeDL(opts) as rip:
+               ytdl_data = rip.extract_info(text)
+    except:
+           await event.edit("Can't download the song due to some reason.")
+           return
+    await event.edit("Uploading...")
+    await event.client.send_file(
+            event.chat_id,
+            f"{ytdl_data['id']}.mp3",
+            supports_streaming=True,
+            attributes=[
+                DocumentAttributeAudio(duration=int(ytdl_data['duration']),
+                                       title=str(ytdl_data['title']),
+                                       performer=str(ytdl_data['uploader']))
+            ])
+            
+    await event.delete()
+    os.remove(f"{ytdl_data['id']}.mp3")
+    os.remove(f"{ytdl_data['id']}.jpg")
+    os.system(" youtube-dl --rm-cache-dir")
