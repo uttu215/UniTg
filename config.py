@@ -5,7 +5,7 @@ from telethon.tl.types import ChatBannedRights
 class Config(object):
     LOGGER = True
     # Your Telegram Username
-    ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+    ALIVE_NAME = os.environ.get("ALIVE_NAME", "Chotabheem6")
     # Get this value from my.telegram.org! Please do not steal
     APP_ID = int(os.environ.get("APP_ID", 1791962))
     API_HASH = os.environ.get("API_HASH", "78e678ed46957a1ebc2767ade7cb7e91")
